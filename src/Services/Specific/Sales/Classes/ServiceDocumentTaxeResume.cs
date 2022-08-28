@@ -1,0 +1,22 @@
+﻿using Persistence.Entities;
+using Persistence.Repository.Interfaces;
+using Persistence.UnitOfWork.Interfaces;
+using Services.Generic.Classes;
+using Services.Specific.Sales.Interfaces;
+using ViewModels.Builders.Specific.Administration.Interfaces;
+using ViewModels.Builders.Specific.Sales.Interfaces;
+using ViewModels.DTO.Sales;
+
+namespace Services.Specific.Sales.Classes
+{
+    public class ServiceDocumentTaxeResume : Service<DocumentTaxResumeViewModel, DocumentTaxsResume>, IServiceDocumentTaxeResume
+    {
+        public ServiceDocumentTaxeResume(IRepository<DocumentTaxsResume> entityRepo, IUnitOfWork unitOfWork, 
+            IDocumentTaxsResumeBuilder builder,
+            IEntityAxisValuesBuilder builderEntityAxisValues, 
+            IRepository<EntityAxisValues> entityRepoEntityAxisValues) : 
+            base(entityRepo, unitOfWork, builder, builderEntityAxisValues, entityRepoEntityAxisValues)
+        {
+        }
+    }
+}

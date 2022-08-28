@@ -1,0 +1,128 @@
+###################
+# compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+# Include dlls if they’re in the NuGet packages directory
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
+# Include dlls if they're in the CommonReferences directory
+!*CommonReferences/*.dll
+####################
+# VS Upgrade stuff #
+####################
+UpgradeLog.XML
+_UpgradeReport_Files/
+###############
+# Directories #
+###############
+bin/
+obj/
+TestResults/
+###################
+# Web publish log #
+###################
+*.Publish.xml
+#############
+# Resharper #
+#############
+/_ReSharper.*
+*.ReSharper.*
+############
+# Packages #
+############
+# it’s better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+######################
+# Logs and databases #
+######################
+*.log
+*.sqlite
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+NuGet.exe
+_[Ss]cripts
+*.exe
+*.dll
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
+######################
+# Generated scripts #
+######################
+**/app/**/*.js
+**/app/**/*.js.map
+node_modules/
+**/*.csproj.vspscc
+**/*.vssscc
+.vs/
+UpgradeLog.htm
+01-Web/SparkIt.Web/wwwroot/lib/
+01-Web/AuthorisationServer/
+01-Web/SparkIt.Web/Temp/
+01-Web/SparkIt.Web/wwwroot/config/
+01-Web/SparkIt.Web/Env/
+01-Web/AuthorisationServer/bin/
+01-Web/AuthorisationServer/obj/
+01-Web/SparkIt.Web/bin/
+01-Web/SparkIt.Web/obj/
+02-Model/ModelView/bin/
+02-Model/ModelView/obj/
+03-Application/Application/bin/
+03-Application/Application/obj/
+04-Infrastucture/Infrastruture/bin/
+04-Infrastucture/Infrastruture/obj/
+05-Domain/DataMapping/bin/
+05-Domain/DataMapping/obj/
+06-UnitTest/XUnitTest/bin/
+06-UnitTest/XUnitTest/obj/
+07-Reporting/bin/
+07-Reporting/obj/
+npm_packages/
+deploy/
+/01-Web/SparkIt.Web/SharedDocument
+/09-Reporting/MyReports/.metadata/.plugins
+/01-Web/SparkIt.Web/uploadFiles/Demo/Shared/User/33/5765c44d-7c78-4c28-ad72-3094f2c4270a
+/01-Web/SparkIt.Web/uploadFiles/Demo/Shared/User/2/b7c1fac9-3e3c-4bf6-bef3-c48837c7d92d
+/01-Web/SparkIt.Web/uploadFiles/Demo/Shared/User/2/29f3bda4-a903-4c68-9a00-788dd603102b
+/01-Web/SparkIt.Web/uploadFiles/Demo/Sales/Tiers/MKE/f4ef7d68-52fd-4715-9662-bdca712d46fd
+/01-Web/SparkIt.Web/uploadFiles/Demo/Sales/Tiers/Aramex/1b0341fc-9657-4d2b-98ba-b491adc42fee
+/01-Web/SparkIt.Web/uploadFiles/Demo/Shared/Contact/Responsable Achat
+/01-Web/SparkIt.Web/uploadFiles/Demo/Inventory/Family
+/01-Web/SparkIt.Web/uploadFiles/Demo
+
+/01-Web/SparkIt.Web/uploadFiles/test test/Shared/User/97/ef42ccc2-11c4-4aea-b5c9-9a93996865d0
+webPublish.zip
+publish
+01-Web/SparkIt.Web/publish/
+02-Model/ModelView/publish/
+03-Application/Application/publish/
+04-Infrastucture/Infrastruture/publish/
+05-Domain/DataMapping/publish/
+06-UnitTest/XUnitTest/publish/
+packages-lock.json

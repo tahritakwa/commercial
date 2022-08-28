@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TagReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="Resources/LocalReport/Local" uuid="5f358700-3e35-4a20-8d12-6d2b90089b58">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HeaderAdapter.xml"/>
+	<property name="net.sf.jasperreports.data.adapter" value="/data/HeaderAdapter.xml"/>
+	<parameter name="report_sourceUrl" class="java.lang.String">
+		<parameterDescription><![CDATA[Url parameter for report]]></parameterDescription>
+		<defaultValueExpression><![CDATA["http://localhost:5000/api"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="report_lineIds" class="java.lang.String">
+		<parameterDescription><![CDATA[id for document]]></parameterDescription>
+		<defaultValueExpression><![CDATA["43055-3,43056-5,43057-7"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="current_user" class="java.lang.String">
+		<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telerik" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="WebServiceQuery">
+		<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "Date",
+    "expression" : "Date"
+  }, {
+    "name" : "PurchaseDeliveryCode",
+    "expression" : "PurchaseDeliveryCode"
+  }, {
+    "name" : "BarCode",
+    "expression" : "BarCode"
+  }, {
+    "name" : "SupplierCode",
+    "expression" : "SupplierCode"
+  }, {
+    "name" : "Warehouse",
+    "expression" : "Warehouse"
+  }, {
+    "name" : "Shelf",
+    "expression" : "Shelf"
+  }, {
+    "name" : "Storage",
+    "expression" : "Storage"
+  }, {
+    "name" : "ItemCode",
+    "expression" : "ItemCode"
+  }, {
+    "name" : "ItemLabel",
+    "expression" : "ItemLabel"
+  }, {
+    "name" : "ProductName",
+    "expression" : "ProductName"
+  }, {
+    "name" : "OemCode",
+    "expression" : "OemCode"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/salesPurchaseReporting/getTagListOfPurchaseDelivery/$P!{report_lineIds}/"
+  },
+  "headersMap" : {
+    "User" : "$P!{current_user}",
+    "Telerik" : "$P!{telerik}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+	</queryString>
+	<field name="Date" class="java.lang.String"/>
+	<field name="PurchaseDeliveryCode" class="java.lang.String"/>
+	<field name="BarCode" class="java.lang.String"/>
+	<field name="SupplierCode" class="java.lang.String"/>
+	<field name="Warehouse" class="java.lang.String"/>
+	<field name="Shelf" class="java.lang.String"/>
+	<field name="Storage" class="java.lang.String"/>
+	<field name="ItemCode" class="java.lang.String"/>
+	<field name="ItemLabel" class="java.lang.String"/>
+	<field name="ProductName" class="java.lang.String"/>
+	<field name="OemCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="353" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="20" width="65" height="15" uuid="3e0f8213-f687-44c9-991c-5488a836d910">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="20" width="108" height="15" uuid="fb3dc4d6-5816-414c-9b66-5bb2133e9e69">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Warehouse} +" ("+$F{Shelf}+$F{Storage}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="35" width="80" height="15" uuid="d2b054d5-1720-421d-a5bb-b64acdcc6b53">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{PurchaseDeliveryCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="35" width="34" height="15" uuid="303c9141-ea93-4b52-a07e-9b3f3e596de6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Br n° : "]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToTallestObject" x="100" y="50" width="180" height="15" uuid="963b8972-49fe-472c-802f-06b080ffded9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ItemCode}+"-"+$F{ItemLabel}+"  ("+$F{ProductName}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="130" y="65" width="133" height="15" uuid="5f586a07-2ef8-479e-a9c7-26069758d66f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{OemCode}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement positionType="Float" x="94" y="83" width="110" height="20" isRemoveLineWhenBlank="true" uuid="2e10462e-5a74-4f7a-b407-2bc896e606f5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.barWidth" value="px"/>
+					<printWhenExpression><![CDATA[NOT(EQUALS($F{BarCode},null) )]]></printWhenExpression>
+				</reportElement>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="SSCC18" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{BarCode}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="214" y="81" width="45" height="15" uuid="54d73ba8-2be5-4d0c-8811-2abe4ca3ca2b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{SupplierCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="100" y="65" width="40" height="15" uuid="0f76d125-8e0d-4a6c-a622-a3ef1b7fa422">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oem :  "]]></textFieldExpression>
+			</textField>
+			<rectangle radius="1">
+				<reportElement mode="Transparent" x="95" y="10" width="188" height="113" uuid="76b7dda8-8b5e-4e70-ba6f-13b22d29df98">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="100" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

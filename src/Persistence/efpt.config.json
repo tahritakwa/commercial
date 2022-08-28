@@ -1,0 +1,1209 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "GUIDContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Persistence",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[Administration].[Axis]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[AxisEntity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[AxisRelationShip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[AxisValue]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[AxisValueRelationShip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[Currency]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[CurrencyRate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Administration].[EntityAxisValues]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ClientDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[oauth_access_token]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[oauth_client_details]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[oauth_client_token]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Ecommerce].[Delivery]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Ecommerce].[JobTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Ecommerce].[TriggerItemLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Codification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Comment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Discussion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Entity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[EntityCodification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Functionality]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Information]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Log]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Logs]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Message]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[MessageChat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[MsgNotification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Notification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[Privilege]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[ReportTemplate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[RequestType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[User]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[UserDiscussionChat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[UserInfo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[ERPSettings].[UserPrivilege]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Helpdesk].[Claim]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Helpdesk].[ClaimInteraction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Helpdesk].[ClaimStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Helpdesk].[ClaimType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Helpdesk].[ClaimTypeRelation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Immobilisation].[Active]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Immobilisation].[Category]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Immobilisation].[History]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Family]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Item]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemKit]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemPrices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemSalesPrice]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemTiers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemVehicleBrandModelSubModel]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ItemWarehouse]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[MeasureUnit]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ModelOfItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[MovementHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Nature]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Oem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[OemItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[ProductItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Shelf]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[StockDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[StockDocumentLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[StockDocumentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[StockMovement]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Storage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[SubFamily]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[SubModel]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[TaxeItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[VehicleBrand]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Inventory].[Warehouse]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[CashRegister]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[FundsTransfer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[PaymentCondition]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[PaymentMethod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[PaymentSlip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[PaymentStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[PaymentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[ReflectiveSettlement]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[SessionCash]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[Settlement]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[SettlementCommitment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[SettlementDocumentWithholdingTax]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[WithholdingTax]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payment].[WithholdingTaxLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[AdditionalHour]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[AdditionalHourSlot]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Attendance]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[BaseSalary]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[BenefitInKind]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Bonus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[BonusValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Cnss]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[CnssDeclaration]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[CnssDeclarationDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[CnssDeclarationSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ConstantRate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ConstantRateValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ConstantValue]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ConstantValueValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Contract]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ContractAdvantage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ContractBenefitInKind]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ContractBonus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ContractType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ContributionRegister]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Department]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[DocumentRequest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[DocumentRequestEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[DocumentRequestType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Employee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[EmployeeDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[EmployeeSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[EmployeeTeam]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitAction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitActionEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitEmailForEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitEmployeeLeaveLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitEmployeePayLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitEmployeePayLineSalaryRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExitReason]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExpenseReport]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExpenseReportDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExpenseReportDetailsType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ExpenseReportEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Grade]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Job]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[JobEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[JobSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Leave]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[LeaveBalanceRemaining]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[LeaveEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[LeaveType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Loan]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[LoanInstallment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Note]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ParentInCharge]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[ParentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Payslip]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[PayslipDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Qualification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[QualificationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[RuleUniqueReference]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SalaryRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SalaryRuleValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SalaryStructure]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SalaryStructureValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SalaryStructureValidityPeriodSalaryRule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Session]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SessionBonus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SessionContract]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SessionLoanInstallment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SharedDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Skills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SkillsFamily]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SourceDeduction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SourceDeductionSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[SourceDeductionSessionEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Team]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[TeamType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[TransferOrder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[TransferOrderDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[TransferOrderSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[Variable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Payroll].[VariableValidityPeriod]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Reporting].[DimCurrency]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Reporting].[DimItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Reporting].[DimTiers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Reporting].[DimWarehouse]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Advantages]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Candidacy]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Candidate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[CriteriaMark]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[CurriculumVitae]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[EmployeeProject]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[EmployeeTrainingSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[EvaluationCriteria]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[EvaluationCriteriaTheme]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ExternalTrainer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ExternalTrainerSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ExternalTraining]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[FileDrive]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[FileDriveSharedDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Formation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[FormationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Interview]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[InterviewEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[InterviewMark]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[InterviewQuestion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[InterviewQuestionTheme]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[InterviewType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[MobilityRequest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Objective]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Offer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[OfferBenefitInKind]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[OfferBonus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Project]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Question]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Recruitment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[RecruitmentLanguage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[RecruitmentSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Review]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ReviewFormation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ReviewResume]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[ReviewSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TimeSheet]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TimeSheetLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[Training]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingByEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingCenter]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingCenterManager]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingCenterRoom]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingExpectedSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingRequest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingRequiredSkills]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingSeance]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[TrainingSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[UserFileAccess]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[RH].[UserFileModification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[BillingEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[BillingSession]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DeliveryType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DetailsSettlementMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Document]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentExpenseLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentLine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentLineNegotiationOptions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentLinePrices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentLineTaxe]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentTaxsResume]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentTypeRelation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[DocumentWithholdingTax]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Expense]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[FinancialCommitment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[OperationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[PriceDetail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[PriceRequest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[PriceRequestDetail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Prices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Provisioning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[ProvisioningDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[ProvisioningOption]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[PurchaseSettings]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SaleSettings]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SalesInvoiceLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SalesPrice]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SearchItem]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SettlementMode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[SettlementType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TaxeGroupTiers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TaxeGroupTiersConfig]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TierCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Tiers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Tiers_Provisioning]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TiersPrices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TypePrices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[TypeTiers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[Vehicle]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Sales].[VehicleEnergy]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Address]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Bank]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[BankAccount]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[BankAgency]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[City]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Civility]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Company]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Contact]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[ContactTypeDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Counter]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Country]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[DateToRemember]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[DayOff]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Email]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[GeneralSettings]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Hours]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[JobsParameter]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Language]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[NewUserEmail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Office]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Period]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Phone]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[Taxe]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[TaxeType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Shared].[ZipCode]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[DetailReconciliation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[DetailTimetable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[OperationCash]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[PaymentDirection]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[ReceiptSpent]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[Reconciliation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[Ticket]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[TicketPayment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Treasury].[Timetable]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "YMAALOUL-PC.MasterGuidTN",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

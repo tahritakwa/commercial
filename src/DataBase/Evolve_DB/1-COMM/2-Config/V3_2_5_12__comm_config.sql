@@ -1,0 +1,1 @@
+update Sales.DocumentType set Label='Commande définitive',Description='Commande définitive' where Code='FO-PU'

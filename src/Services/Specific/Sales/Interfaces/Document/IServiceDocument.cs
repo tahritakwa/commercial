@@ -1,0 +1,237 @@
+﻿using Microsoft.AspNetCore.Http;
+using Services.Generic.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Management;
+using ViewModels.DTO.Sales;
+using ViewModels.DTO.ErpSettings;
+using ViewModels.DTO.Utils;
+using Utils.Utilities.DataUtilities;
+using Utils.Utilities.PredicateUtilities;
+using ViewModels.DTO.Sales.Document;
+using Settings.Config;
+using ViewModels.DTO.SameClasse;
+using ViewModels.DTO.Payment;
+using ViewModels.DTO.Inventory;
+using ViewModels.DTO.Accounting;
+using ViewModels.DTO.Administration;
+using Persistence.Entities;
+using ViewModels.DTO.B2B;
+using ViewModels.DTO.Shared;
+using ViewModels.DTO.Treasury;
+using System.Threading.Tasks;
+using ViewModels.DTO.Reporting;
+using ViewModels.DTO.Ecommerce;
+
+namespace Services.Specific.Sales.Interfaces
+{
+    public interface IServiceDocument : IService<DocumentViewModel, Document>
+    {
+        DocumentViewModel GetDocumentById(int id);
+        object AddDocument(IList<IFormFile> files, DocumentViewModel document, string userMail, IList<EntityAxisValuesViewModel> entityAxisValuesModelList);
+        object AddDocumentInRealTime(IList<IFormFile> files, DocumentViewModel document, string userMail, IList<EntityAxisValuesViewModel> entityAxisValuesModelList);
+        DocumentViewModel UpdateDocumentOperation(IList<IFormFile> files, DocumentViewModel document,
+            IList<EntityAxisValuesViewModel> entityAxisValues, string userMail, bool manageFile = true);
+        object ValidateDocument(int idDocument, string userMail);
+        List<DocumentViewModel> MassValidateDocuments(List<DocumentViewModel> DocumentList, string userMail);
+        CreatedDataViewModel ValidateOrRejectDocument(int idDocument, string userMail, int status);
+        DocumentViewModel UpdateDocument(IList<IFormFile> files, DocumentViewModel document, IList<EntityAxisValuesViewModel> entityAxisValues, string userMail, bool manageFile = true);
+        DataSourceResult<DocumentViewModel> GetDocumentList(PredicateFormatViewModel predicateModel);
+        IEnumerable<DocumentDashboard> PurchaseInvoiceAmountPerMonth();
+        IEnumerable<DocumentDashboard> SaleInvoiceAmountPerMonth();
+        IEnumerable<DocumentDashboard> PurchaseInvoiceAmountPerSupplier();
+        IEnumerable<DocumentDashboard> AmountPerCategoryInSalesInvoice();
+        IEnumerable<DocumentDashboard> AmountPerCategoryPerMonthInSalesInvoice();
+        IEnumerable<DocumentDashboard> AmountItemPerCategoryInPurchaseOrder();
+        IEnumerable<DocumentDashboard> PurchaseDeliveryAmountPerMonth();
+        IEnumerable<DocumentDashboard> PurchaseDeliveryAmountPerSupplier();
+        DocumentDashboard NumberSalesInvoices();
+        DocumentDashboard WorkforceNumber();
+        DocumentDashboard StaffingTurnover();
+        DocumentDashboard IndirectStaffingTurnover();
+        DataSourceResult<DocumentViewModel> GetDocumentList(PredicateFormatViewModel predicateModel, string userMail);
+        CreatedDataViewModel GeneratePurchaseOrder(IList<int> listOfIdDocument, string userMail, SmtpSettings smtpSettings);
+        DocumentLineUnitPriceViewModel GetDocumentLineHtPrice(DocumentLineUnitPriceViewModel documentLineUnitPrice);
+        DocumentLineUnitPriceViewModel GetDocumentLineDiscountRate(DocumentLineUnitPriceViewModel documentLineUnitPrice);
+        void CheckStock(string generatedConnectionString, string dataBaseName);
+        DocumentLineViewModel GetItemPrice(ItemPriceViewModel itemPriceViewModel, bool isFromBToB = false);
+        DocumentTotalPricesViewModel GetDocumentTotalPrice(ReduisDocumentViewModel reduisDocumentViewModel);
+        DocumentViewModel GetDocumentForB2b(int id);
+        DocumentLineViewModel GetItemDetails(int idItem, int idTiers = 0);
+        DocumentViewModel FindDocumentWithDocumentLine(int id, string userMail);
+        void UpdateIdDocumentAssociated(DocumentViewModel documentViewModel);
+        List<DocumentLineViewModel> GetDocumentLinesWithDocument(ReduisDocumentViewModel ReduisDocument);
+        void UpdateDocumentAfterAddSettlement(SettlementViewModel model, Document document, int precision, double exchangeRate);
+        int GetPrecissionValue(int idCurrency, string documenbTypeCode);
+        void GenerateAllCustomerInvoices(string connectionString);
+        int CheckInvoiceErrors();
+        void ExecuteAllCustomerInvoicesGenereation(DateTime dayOfInvoicing, string connectionString);
+        object CheckAndChangeDocumentToPrinted(DocumentViewModel document, string userEmail);
+        ImportDocumentBalancesViewModel GetDocumentsWithBalances(ReduisDocumentViewModel reduisDocument);
+        DataSourceResult<DocumentListViewModel> FindDocumentList(PredicateFormatViewModel predicateModel, bool isBTob = false);
+        dynamic FindDocumentControlList(PredicateFormatViewModel predicateModel);
+        List<FilterViewModel> filterByDocumentType(FilterViewModel filters);
+        string GetShelfAndStorageOfItemInWarehouse(int idItem, int? idWarehouse);
+        CreatedDataViewModel GeneratePriceRequest(IList<int> listOfIdDocument, string userMail, SmtpSettings smtpSettings);
+        ItemHistoryViewModel GetMovementHistoryRelatedToItem(ItemHistoryViewModel model);
+        bool IsProvisionalStock(ItemPriceViewModel itemPriceViewModel);
+        void CalculateAverageSalesPerDay(string connectionstring);
+        List<AccountingDocument> GetAccountingDocument(PredicateFormatViewModel imoptedDocument, out int total);
+        CurrencyViewModel getUserCurrency(int idTiers);
+        List<int> GetDocumentsIdsWithCondition(PredicateFormatViewModel predicate);
+        void AccountDocument(DocumentViewModel documentViewModel);
+        void AccountDocuments(IEnumerable<DocumentViewModel> documentViewModels, string userMail);
+        void AccountSettlement(Settlement documentViewModel);
+        void UnaccountedSettlement(Settlement documentViewModel);
+        void UnaccountedDocument(DocumentViewModel documentViewModel);
+        List<DocumentViewModel> FindDocumentBudget(int id);
+        int GetOrderCount();
+        DocumentViewModel GetPurchaseBudgetForPriceRequest(PurchaseBudgetPriceRequest purchaseBudgetPriceRequest);
+        List<CreatedDataViewModel> GeneratePurchaseOrderFromPriceRequest(List<DocumentLineWithSupplier> documentLineWithSupplier, string userMail);
+        DocumentViewModel UpdateDocumentAmounts(int doumentId, string userMail);
+        DocumentViewModel GetDocumentAmounts(int doumentId, string userMail);
+        DocumentViewModel InsertUpdateDocumentLine(ItemPriceViewModel itemPricesViewModel, string userMail);
+        DocumentViewModel ImportDocuments(ImportDocumentsViewModel importDocuments, string? userMail);
+        void FusionBl(ImportDocumentsViewModel importDocuments);
+        DocumentViewModel UpdateDocumentFields(DocumentViewModel document, string userMail);
+        List<DocumentLineViewModel> SaveBalances(DocumentWithDocumentLineViewModel documentLineViewModel);
+        void CalculateDocumentLine(ItemPriceViewModel itemPricesViewModel, bool recalculDiscount = false, bool fromInverseDiscount = false);
+        DocumentExpenseLineViewModel SaveUpdateExpenseLine(DocumentExpenseLineViewModel expenseLine, string userMail);
+
+        void ManageFileInRealTime(DocumentViewModel document);
+        DocumentViewModel RecalculateDocumentAfterSetBudgetPurchase(DocumentViewModel purchaseOrderDocument, ItemPriceViewModel itemPricesViewModel);
+        double CalculateCostPrice(InputToCalculateCoefficientOfPriceCostViewModel inputToCalculatePriceCostViewModel, string userMail);
+
+        DocumentViewModel UpdatePurchaseRequest(DocumentViewModel document);
+        List<DocumentLineViewModel> GetDocumentLinesWithPaging(DocumentLinesWithPagingViewModel documentLinesWithPagingViewModel, string userMail, out int total);
+        DocumentViewModel SavePurchaseBudgetFromPurchaseOrder(int idDocument, string userMail);
+        IList<CostPriceViewModel> GetCostPriceWithPaging(DocumentLinesWithPagingViewModel costPriceWithPagingViewModel, out int total);
+        List<CostPriceViewModel> GeneratePriceCostLinesFromDocumentLine(IList<DocumentLine> DocumentLineList);
+        CostPriceViewModel AssingMargin(InputToCalculatePriceCostViewModel inputToCalculatePriceCostViewModel);
+        void AddDocumentOperation(IList<IFormFile> files, DocumentViewModel document, DocumentType documentType, string userMail, string property = null);
+
+        List<DocumentLineViewModel> GenerateDocumentLine(ItemViewModel item, Project project, int idTimeSheet);
+        ItemHistoryViewModel GetMovementHistoryRelatedToItemB2B(ItemHistoryViewModel itemHistoryViewModel);
+
+        DocumentViewModel GenerateInvoice(List<DocumentLineViewModel> documentLinesViewModel, Project project, int idTimeSheet);
+        DocumentLineViewModel CalculeDocumentLine(ItemPriceViewModel itemPriceViewModel, int precision);
+        double GetAvailbleQuantity(ItemQuantity itemQuantity);
+        DataSourceResult<ItemViewModel> GetsItemsAfterFilter(PredicateFormatViewModel predicateModel);
+        IEnumerable<ItemViewModel> GetItemsDataSourceModel(PredicateFormatViewModel predicateModel, out int total);
+        DocumentLineViewModel GetItemPriceForB2BDocument(BtoBDocumentLineViewModel btoBDocumentLineViewModel);
+        DocumentLineViewModel GetDocumentLineValuesForB2B(ItemPriceViewModel itemPriceViewModel);
+        DocumentTotalPricesViewModel GetDocumentTotalPriceForB2BDocument(ReduisDocumentViewModel reduisDocumentViewModel);
+        DocumentViewModel SaveOrder(DocumentViewModel document);
+        void UpdateOrder(DocumentViewModel document);
+        dynamic FindDocumentListForB2BDocument(PredicateFormatViewModel model);
+        void SendDocument(int idDocument);
+        DocumentViewModel GetDocumentWithLines(int id);
+        object AddDocumentWithoutTransaction(IList<IFormFile> files, DocumentViewModel document,
+           DocumentType documentType, string userMail, IList<EntityAxisValuesViewModel> entityAxisValuesModelList);
+        object SendPriceRequestMailFromOrder(int idPriceRequest, string informationType, UserViewModel user, SmtpSettings smtpSettings, string url);
+        void SaveRemplacementItem(int idItem, int idDocumentLine, string code, string description);
+        CreatedDataViewModel AddDocumentWithoutTransactionInRealTime(IList<IFormFile> files, DocumentViewModel document, string userMail, IList<EntityAxisValuesViewModel> entityAxisValuesModelList);
+        DocumentLineViewModel InsertUpdateDocumentLineWithoutTransaction(ItemPriceViewModel itemPricesViewModel, string userMail);
+        DocumentViewModel UpdateDocumentAmountsWithoutTransaction(int doumentId, string userMail);
+        double RecalculateDocumentAndDocumentLineAfterChangingCurrencyExchangeRate(int doumentId, double exchangeRateValue);
+        void ImportDocumentsBS(ImportDocumentsBSViewModel importDocumentsViewModel);
+        DocumentLineViewModel InsertUpdateBSDocumentLine(ItemPriceViewModel itemPriceViewModel);
+        DocumentLineViewModel InsertUpdateBSDocumentLineWithoutTransaction(ItemPriceViewModel itemPriceViewModel);
+
+
+        DocumentLineViewModel GetDocumentLineValues(ItemPriceViewModel itemPriceViewModel);
+        List<ReducedDocumentLineViewModel> GetDocumentLineOfBlNotAssociated(int idTiersBS);
+        void UpdateBlsInRealTime(List<int> idsBls);
+        ReportSettings GetInvoiceReportSettings(int idDocument, HttpContext ctx, string userMail, PrinterSettings printerSettings);
+        ReportSettings GetInvoiceReportSettings(HttpContext ctx, string userMail, PrinterSettings printerSettings, string reportType, string documentType, int groupbytiers);
+
+        LastBLItemPriceViewModel GetLastBLPriceForItem(int idItem, int idTiers);
+        DataSourceResult<DocumentViewModel> GetValidAssetsAndInvoice(int idClient, dynamic data);
+        bool GetDocumentAvailibilityStockReserved(int id);
+        DataSourceResult<BlforTierViewModel> GetBlsForTermBilling(DateTime date, bool isBl , int? idTierCategory);
+        List<int> GenerateTermInvoice(List<TierSettelementMode> data, DateTime date, DateTime invoicingDate, string userMail, bool isBl, int? idTierCategory = null);
+        List<ManagementBaseObject> GetListOfActivePrinters();
+        void OfConfirmation(int id);
+        void SoldeDocumentAssociated(int idDocument, string userMail);
+        void ReValidate(int id);
+        DataSourceResult<DocumentViewModel> GetProvisionalBl(ProvisionalSDFilterViewModel provisionalSDFilter);
+        DocumentViewModel ApplyDiscountForAllDocumentLines(double discount, int id);
+        DocumentViewModel DeleteAllLinesFromId(List<int> idList);
+        DocumentViewModel ImportLineToInvoiced(ItemPriceViewModel itemPriceViewModel);
+        DocumentViewModel ValidateDocumentWithoutTransaction(int idDocument, string userMail, int status, bool isFromAssocieteddocument);
+        ReportSettings GetBtoBDocumentReportSettings(int idDocument, HttpContext ctx, string userMail, PrinterSettings printerSettings);
+        void CancelDocument(int idDocument);
+        List<ReducedPanierDocumentLineViewModel> GetDocumentLinesToInvoicePanier(PredicateWithDateFilterInformationViewModel dateFilter);
+        DocumentViewModel SetDocumentDelivered(int idDoc, bool isDelivered, string userMail);
+        void SetDocumentLineSalePolicy(int idDocument, int selectedPolicy, int idLine);
+        CostPriceViewModel GetDocumentLineCost(int idLine);
+        OutstandingDeliveryFormResultViewModel GetCustomerDeliverFormOutstandingList(PredicateFormatViewModel model);
+        DataSourceResult<OutstandinngInvoiceViewModel> GetInvoicesOutstandingDocumentList(PredicateFormatViewModel predicateModel, int tiersType);
+        OutstandingFinancialCommitmentResultViewModel GetFinancialCommitmentOrAssetsOutstandingDocumentList(PredicateFormatViewModel predicateModel, int tiersType, int documentType);
+        TiersTreasuryReportResultViewModel GetReceivablesReports(int? IdTiers, DateTime? StartDate, DateTime? EndDate, int page, int pageSize, int tiersType,
+                                              bool deliveryFormNotBilled, bool unpaidFinancialCommitment);
+        DocumentLineViewModel InsertUpdateDocumentLineProcess(ItemPriceViewModel itemPricesViewModel);
+        DocumentLineViewModel InsertUpdateBSDocumentLineProcess(ItemPriceViewModel itemPricesViewModel);
+        void VerifyBlRelatedToBsWhenDeletedLine(ItemPriceViewModel itemPricesViewModel);
+        void SendInvoiceRevivalMail(List<FinancialCommitmentViewModel> invoiceFinancialCommitments, string userMail, SmtpSettings smtpSettings);
+
+        List<BalanceDocumentLine> GetBalancedList(int idTiers, string importerDocumentType = null,
+            string importedDocumentType = null, bool isFromB2B = false);
+        List<BalanceDocumentLine> GetBalancedListWithPredicate(int idTiers, PredicateFormatViewModel predicate, string importerDocumentType = null,
+            string importedDocumentType = null, bool isFromB2B = false);
+        List<BalanceDocumentLine> CancelBalancedDocLine(int idDocLine,
+            string importerDocumentType = null, string importedDocumentType = null, bool isFromB2B = false);
+        List<BalanceDocumentLine> SaveBalancedDocLine(BalanceDocumentLine idDocLine);
+        bool IsDocumentLineNegotiatedFromDocumentId(int id);
+        void GetDocumentLinePrice(ItemPriceViewModel itemPriceViewModel);
+        bool IsAnyLineWithoutPrice(int idDoc);
+        ICollection<DocumentViewModel> GenerateInvoiceFromBillingSessionAsync(int idBillingSession);
+        bool IsDocumentContainsLines(int idDocument);
+
+        DataSourceResult<OutstandinngInvoiceForExportViewModel> GetInvoiceOutstandingDocumentForExport(PredicateFormatViewModel predicateFormatModel);
+        void CheckItemTierRelation(ItemPriceViewModel itemPricesViewModel);
+        DataSourceResult<OutstandingFinancialCommitmentForExportViewModel> GetFinancialCommitmentOrAssetsOutstandingDocumentForExport(PredicateFormatViewModel predicateFormatModel);
+        FinancialCommitmentForReceivableReducedViewModel FinancialCommitmentInReceivableExpandedRows(PredicateFormatViewModel predicateModel, int tiersType, int documentType);
+        DataSourceResult<OutstandingDeliveryFormForExportViewModel> GetCustomerDeliverFormOutstandingForExport(PredicateFormatViewModel model);
+        DataSourceResult<TiersTreasuryReportForExportViewModel> GetReceivablesReportsForExport(PredicateFormatViewModel predicateFormatModel);
+        DocumentLineViewModel getDiscountValue(ItemPriceViewModel itemPriceViewModel);
+        dynamic GetItemPriceForGarage(Dictionary<int, IList<dynamic>> dataToSend);
+        dynamic GetOneItemPriceForGarage(int? idWharehouse, int idItem, double quantity, double? discount = null);
+        dynamic GetDocumentsAssociatedForPriceRequest(int documentId);
+        CreatedDataViewModel GenerateDeliveryForGarageInterventionOrder(int idTiers, IList<ReducedItemForGarage> reducedItemForGarages);
+        CreatedDataViewModel UpdateDeliveryAndGenerateEmptyInvoiceForGarageInterventionOrder(int idDocument, IList<ReducedItemForGarage> reducedItemForGarages);
+        DataSourceResult<ItemViewModel> GetItemPriceAndRemaningQuantityForGarage(Dictionary<int, double> itemIdAndQuanity, int? idWarehouse);
+        double CalculateNumberDaysOutStockCurrentYear(int idItem);
+        DataSourceResult<ReducedDocumentList> GetListDataWithSpecificFilter(List<PredicateFormatViewModel> predicateModel);
+        void CheckitemPricesObject(ItemPriceViewModel itemPriceViewModel);
+        IList<CreatedDataViewModel> SaveBulkOrder(List<DocumentViewModel> documentList);
+        CreatedDataViewModel GenerateQuotationForGarageRepairOrder(int idTiers, IList<ReducedItemForGarage> reducedItemForGarages);
+        dynamic GetTiersAndItemAndDocumentForGarage(int idTiers, List<int> idItems, int? idWarehouse, int? idDocument);
+        Task<dynamic> ValidateOrderBtoB(int idDocument, string userMail);
+        CreatedDataViewModel UpdateQuotationForGarageRepairOrder(int idQuotationDocument, bool validateDocument, IList<ReducedItemForGarage> reducedItemForGarages);
+        CreatedDataViewModel GeneratePosInvoiceFromBl(int idDocument, Document invoice, int idTicket, bool isFromTickets, List<int> idsDelivery, List<int> idsTickets, string userMail);
+        object DeleteDocuments(List<int> ids, string userMail);
+        bool IsAnyRelationSupplierWithItem(int idTier, int idItem);
+        NoteOnTurnoverTotalLinesReportViewModel GetNoteOnTurnoverList(string StartDate, string EndDate, int idItem, bool isFromReporting = false);
+        NoteOnTurnoverTotalLinesReportViewModel GetNoteOnTurnoverDataSource(string StartDate, string EndDate, int idItem);
+        Document CanceledOrderFromBtob(string CanceledOrderCode);
+        Task<dynamic> CanceledOrderBtobFromStark(int idDocument);
+        bool ExistingBLToBToBOrder(int idDocument);
+        void CalculDocument(DocumentViewModel documentViewModel, List<DocumentTaxsResume> UpdatedDocumentTaxsResumes, List<int> documentLinesId, Document document1, bool getTaxResume = true);
+        IList<DocumentLineTaxeViewModel> GetTaxValues(ItemPriceViewModel itemPriceViewModel, bool recalculTaxe = false, bool fromInverseDiscount = false);
+        void SynchronizeAllBToBDocuments(string userMail);
+        DocumentViewModel GetNewDocumentForBillingSession(DocumentViewModel document, string userMail);
+        List<DocumentViewModel>  GetDocumentsByBillingEmployees(List<BillingEmployeeViewModel> billingEmployeeViewModels);
+        DataSourceResult<string> GenerateDeliveryForms(ListOrdersViewModel listOrdersViewModel);
+        DataSourceResult<string> CreateDeliveryForms(ListOrdersViewModel listOrdersViewModel);
+        DocumentViewModel UpdateDocumentAfterChangeTtcPrice(int IdDoc, double documentAmount, string userMail);
+        DocumentViewModel GenerateDepositSalesInvoice(int idDoc, double amount, int idItem, string userMail);
+        DocumentViewModel ValidateOperation(int idDocument, string userMail, int status, bool isFromAssocieteddocument, bool isDepositInvoice = false);
+        bool IsValidDepositInvoiceStatus(int idDepositInvoice, int idOrder);
+        DocumentViewModel GenerateInvoiceFromOrder(int idDoc, string userMail);
+        CancelOrderViewModel CheckOrderToCancel(int idDocument, string userMail);
+        string CheckReservedLines(int idDocument);
+        DocumentViewModel GenerateInvoice(int[] idsDocument, string userMail);
+        DeleteInvoiceFromPosViewModel CheckInvoiceLinesToDelete(int idInvoice, List<int> Lines, string userMail);
+    }
+}

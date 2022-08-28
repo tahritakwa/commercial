@@ -1,0 +1,16 @@
+﻿[*.cs]
+
+# CA1062: Valider les arguments de méthodes publiques
+dotnet_diagnostic.CA1062.severity = none
+
+# CA1305: Spécifier IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA2000: Supprimer les objets avant la mise hors de portée
+dotnet_diagnostic.CA2000.severity = none
+
+# CA1307: Spécifier StringComparison
+dotnet_diagnostic.CA1307.severity = none
+
+# CA2100: Vérifier si les requêtes SQL présentent des failles de sécurité
+dotnet_diagnostic.CA2100.severity = none

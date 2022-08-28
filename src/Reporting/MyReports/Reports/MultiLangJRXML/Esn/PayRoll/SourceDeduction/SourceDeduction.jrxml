@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SourceDeduction" pageWidth="600" pageHeight="842" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" resourceBundle="Resources/LocalReport/Local_en_EN" uuid="657ff124-4d05-4bc8-9458-a7c43a4e625f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HeaderAdapter"/>
+	<property name="net.sf.jasperreports.data.adapter" value="/data/HeaderAdapter.xml"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8282/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/MultiLang/ESN/PayRoll/SourceDeduction/SourceDeduction_en_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/MultiLang/ESN/PayRoll/SourceDeduction/SourceDeduction_en"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="458"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="529"/>
+	<parameter name="report_sourceUrl" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://localhost:5001/api"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idSourceDeduction" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="current_user" class="java.lang.String">
+		<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telerik" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="WebServiceQuery">
+		<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "CompanyName",
+    "expression" : "CompanyName"
+  }, {
+    "name" : "Year",
+    "expression" : "Year"
+  }, {
+    "name" : "CompanyMatriculeFisc",
+    "expression" : "CompanyMatriculeFisc"
+  }, {
+    "name" : "CompanyTaxIdentNumber",
+    "expression" : "CompanyTaxIdentNumber"
+  }, {
+    "name" : "CompanyCategory",
+    "expression" : "CompanyCategory"
+  }, {
+    "name" : "CompanySecondaryEstablishment",
+    "expression" : "CompanySecondaryEstablishment"
+  }, {
+    "name" : "CompanyAdress",
+    "expression" : "CompanyAdress"
+  }, {
+    "name" : "CompanyCountry",
+    "expression" : "CompanyCountry"
+  }, {
+    "name" : "CompanyCity",
+    "expression" : "CompanyCity"
+  }, {
+    "name" : "EmployeeMaritalStatus",
+    "expression" : "EmployeeMaritalStatus"
+  }, {
+    "name" : "EmployeeChildrenNumber",
+    "expression" : "EmployeeChildrenNumber"
+  }, {
+    "name" : "EmployeeMatricule",
+    "expression" : "EmployeeMatricule"
+  }, {
+    "name" : "EmployeeFullName",
+    "expression" : "EmployeeFullName"
+  }, {
+    "name" : "EmployeeAdress",
+    "expression" : "EmployeeAdress"
+  }, {
+    "name" : "EmployeeCIN",
+    "expression" : "EmployeeCIN"
+  }, {
+    "name" : "GenerationDate",
+    "expression" : "GenerationDate"
+  }, {
+    "name" : "Taxableages",
+    "expression" : "Taxableages"
+  }, {
+    "name" : "NaturalAdvantage",
+    "expression" : "NaturalAdvantage"
+  }, {
+    "name" : "GrossTaxable",
+    "expression" : "GrossTaxable"
+  }, {
+    "name" : "RetainedReinvested",
+    "expression" : "RetainedReinvested"
+  }, {
+    "name" : "SumIrpp",
+    "expression" : "SumIrpp"
+  }, {
+    "name" : "CSS",
+    "expression" : "CSS"
+  }, {
+    "name" : "NetToPay",
+    "expression" : "NetToPay"
+  }, {
+    "name" : "EmployeeJob",
+    "expression" : "EmployeeJob"
+  }, {
+    "name" : "EmployeePeriodWorked",
+    "expression" : "EmployeePeriodWorked"
+  }, {
+    "name" : "EmployeeMatriculeCNSS",
+    "expression" : "EmployeeMatriculeCNSS"
+  }, {
+    "name" : "CompanyEmail",
+    "expression" : "CompanyEmail"
+  }, {
+    "name" : "CompanyWebSite",
+    "expression" : "CompanyWebSite"
+  }, {
+    "name" : "CompanyZipCode",
+    "expression" : "CompanyZipCode"
+  }, {
+    "name" : "CompanyCommercialRegister",
+    "expression" : "CompanyCommercialRegister"
+  }, {
+    "name" : "CompanySiret",
+    "expression" : "CompanySiret"
+  }, {
+    "name" : "CompanyTel",
+    "expression" : "CompanyTel"
+  }, {
+    "name" : "StarkWebSiteUrl",
+    "expression" : "StarkWebSiteUrl"
+  }, {
+    "name" : "StarkLogo",
+    "expression" : "StarkLogo"
+  }, {
+    "name" : "CompanyLogo",
+    "expression" : "CompanyLogo"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/sourceDeduction/getSourceDeductionReportInformations/$P!{idSourceDeduction}"
+  },
+  "headersMap" : {
+    "User" : "$P!{current_user}",
+    "Telerik" : "$P!{telerik}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+	</queryString>
+	<field name="CompanyName" class="java.lang.String"/>
+	<field name="Year" class="java.lang.Integer"/>
+	<field name="CompanyMatriculeFisc" class="java.lang.String"/>
+	<field name="CompanyTaxIdentNumber" class="java.lang.Integer"/>
+	<field name="CompanyCategory" class="java.lang.String"/>
+	<field name="CompanySecondaryEstablishment" class="java.lang.String"/>
+	<field name="CompanyAdress" class="java.lang.String"/>
+	<field name="CompanyCountry" class="java.lang.String"/>
+	<field name="CompanyCity" class="java.lang.String"/>
+	<field name="EmployeeMaritalStatus" class="java.lang.String"/>
+	<field name="EmployeeChildrenNumber" class="java.lang.Integer"/>
+	<field name="EmployeeMatricule" class="java.lang.String"/>
+	<field name="EmployeeFullName" class="java.lang.String"/>
+	<field name="EmployeeAdress" class="java.lang.String"/>
+	<field name="EmployeeCIN" class="java.lang.String"/>
+	<field name="GenerationDate" class="java.lang.String"/>
+	<field name="Taxableages" class="java.lang.Float"/>
+	<field name="NaturalAdvantage" class="java.lang.Float"/>
+	<field name="GrossTaxable" class="java.lang.Float"/>
+	<field name="RetainedReinvested" class="java.lang.Float"/>
+	<field name="SumIrpp" class="java.lang.Float"/>
+	<field name="CSS" class="java.lang.Float"/>
+	<field name="NetToPay" class="java.lang.Float"/>
+	<field name="EmployeeJob" class="java.lang.String"/>
+	<field name="EmployeePeriodWorked" class="java.lang.Integer"/>
+	<field name="EmployeeMatriculeCNSS" class="java.lang.String"/>
+	<field name="CompanyEmail" class="java.lang.String"/>
+	<field name="CompanyWebSite" class="java.lang.String"/>
+	<field name="CompanyZipCode" class="java.lang.String"/>
+	<field name="CompanyCommercialRegister" class="java.lang.String"/>
+	<field name="CompanySiret" class="java.lang.String"/>
+	<field name="CompanyTel" class="java.lang.String"/>
+	<field name="StarkWebSiteUrl" class="java.lang.String"/>
+	<field name="StarkLogo" class="java.lang.String"/>
+	<field name="CompanyLogo" class="java.lang.String"/>
+	<variable name="Variable_1" class="java.lang.String"/>
+	<title>
+		<band height="80" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="87" y="0" width="378" height="30" uuid="f43e6716-9a78-4fd1-b7cd-b862a014da61">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Certificat de retenue d'impot sur le revenu au titre des traitements, salaires, pensions et rentes viagères]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="126" y="30" width="300" height="20" uuid="94528f77-d98e-4312-8a1d-6775a4b92282">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Retenue effectuée durant l'année " + $F{Year}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="-10" width="100" height="44" uuid="a7a5def8-822b-49da-bf4e-4bad840aa805">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($F{CompanyLogo}.getBytes()))]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="-20" y="34" width="81" height="20" uuid="5a6fce49-7ebf-4018-b615-b77e2df5817f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CompanyName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="493" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<staticText>
+				<reportElement x="20" y="6" width="246" height="20" uuid="84b58712-bc80-4557-afad-1325dcd79483">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="5" rightPadding="0"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[A - Employeur ou organisme payeur ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="82" width="200" height="20" uuid="65904ff4-6068-4469-86c6-f0f1b87372e1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nom, prénom ou raison sociale :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="108" width="60" height="20" uuid="f642e654-d694-4c83-98de-c0065e4a1c0f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Adresse : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="170" width="281" height="20" uuid="ac953a33-254e-4715-944e-02b20d9e7f21">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="5" rightPadding="0"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[B - Désignation du bénificiaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="260" width="68" height="20" uuid="ddee13de-81c8-4ba0-924a-f8441635eb12">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Matricule : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="286" width="100" height="20" uuid="200bb7da-6f50-4727-8c4e-579e85685cc4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="311" width="135" height="20" uuid="b358f1c3-c032-40d3-8340-ff13d7de7c37">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Adresse de résidence : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="336" width="94" height="20" uuid="5ef6bac8-63b0-474b-90f4-4d8b088ee856">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Emploi occupé :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="360" width="200" height="20" uuid="00c562b6-18d9-4938-bb8c-28a973fe6356">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Période du travail durant l'année :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="265" width="130" height="20" uuid="edb5f400-de8e-4550-898f-89c4b09762df">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[N° Carte d'identité :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="310" width="100" height="20" uuid="81d17e10-2862-455d-8899-c8c12d234905">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Matricule CNSS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="185" y="82" width="164" height="20" uuid="3a7539ae-12b9-4a30-818f-50b60f3a58a0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CompanyName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="108" width="292" height="20" uuid="022d32f8-5f02-4767-aa8f-80392c3d4a5b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CompanyAdress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="132" width="290" height="20" uuid="5cea1a8f-ecb7-4c97-bb85-a93893f79ea1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CompanyCity} + ", " + $F{CompanyCountry}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="80" y="260" width="122" height="20" uuid="43f4c4f9-3147-4709-8deb-5de0b5bdcbcf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeMatricule}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="105" y="286" width="176" height="20" uuid="979e74d0-9d6a-473a-bb92-9711c8ad68af">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeFullName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="310" width="136" height="20" uuid="ba5024d6-76b4-4e54-8e25-307f87c1e36d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeAdress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="435" y="265" width="112" height="20" uuid="9586f1b4-0597-4015-a018-a61797a39ac0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeCIN}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="15" y="398" width="538" height="82" uuid="9dd39c4f-ec7a-4aed-94f8-46ee8cb4238a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<rectangle>
+					<reportElement x="0" y="57" width="538" height="25" backcolor="#FFFFFF" uuid="187541cd-d0d9-4d28-b6b5-851487e66c7b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="7" width="538" height="56" backcolor="#FFFFFF" uuid="9f7cfae1-b15e-42db-a791-6880af8a2e57">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement mode="Opaque" x="76" y="7" width="1" height="75" uuid="541d81b9-dfda-460d-94c0-0b219077eeaf">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement mode="Opaque" x="143" y="7" width="1" height="75" uuid="75a762bb-579b-4bb6-a5c8-2ff092e49eba">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="215" y="10" width="64" height="46" uuid="c49997a6-dc29-4047-9239-26f9a465c499">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Revenu réinvesti]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="76" y="10" width="66" height="46" uuid="e2d59942-cff3-49f6-a415-a0fac63efd73">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Valeur des avantages en nature
+( b )]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="146" y="10" width="68" height="46" uuid="c94aa1e8-28da-47f9-9d99-9b5a50a3eb0d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total du revenu brut imposable
+( a + b )]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="6" y="10" width="64" height="47" uuid="7b686e87-8fbc-463a-a030-eb0b21af5ae4">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[
+Revenu Imposable
+( a )]]></text>
+				</staticText>
+				<line>
+					<reportElement mode="Opaque" x="214" y="7" width="1" height="75" uuid="d0d1f3c9-0afc-40a6-bb86-ff2c20c8b80c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement mode="Opaque" x="279" y="7" width="1" height="75" uuid="c50bbe95-fe15-4a64-98e2-61af8554665c">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement mode="Opaque" x="361" y="7" width="1" height="75" uuid="52e660dc-315f-44e2-9933-6498ae365822">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="284" y="10" width="76" height="46" uuid="7868dcca-dafd-49cd-85b0-7bdfa17785f2">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Montant 
+des retenues d'impôt]]></text>
+				</staticText>
+				<line>
+					<reportElement mode="Opaque" x="456" y="7" width="1" height="75" uuid="8e8917b2-5ad4-4c31-b172-9c925ee2b77b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="366" y="10" width="84" height="46" uuid="6f1c9de9-89fc-49c3-8bcf-64bfdaf9da78">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Montant des contributions sociale solidaire]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="462" y="10" width="67" height="46" uuid="0673f115-aa8d-4042-be4f-de08f286507b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Revenu net des retenues]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="11" y="64" width="60" height="16" uuid="fa11539a-0f71-49cb-9710-b4f6d51af59e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{Taxableages},"0.0" ) ? "" : $F{Taxableages}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="77" y="64" width="66" height="16" uuid="0b11c67b-69ea-4212-a9ce-d9d9159059db">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{NaturalAdvantage},"0.0" ) ? "" : $F{NaturalAdvantage}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="146" y="64" width="64" height="16" uuid="1d9ed8c1-3b00-49c5-a381-741af397b61d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{GrossTaxable},"0.0" ) ? "" : $F{GrossTaxable}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="215" y="64" width="64" height="16" uuid="cc63025d-00ea-4525-9e2b-3eb4bad5f464">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{RetainedReinvested},"0.0" ) ? "" : $F{RetainedReinvested}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="284" y="64" width="76" height="16" uuid="6cf22997-0bec-41ce-b7a2-cad7c272a246">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{SumIrpp},"0.0" ) ? "" : $F{SumIrpp}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="366" y="64" width="86" height="16" uuid="975f3219-aa11-4a57-ae63-ae5c042f2d47">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{CSS},"0.0" ) ? "" : $F{CSS}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="462" y="64" width="74" height="16" uuid="c9b1ae7c-e498-44d9-bb28-10389fcacb6d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[EQUALS($F{NetToPay},"0.0" ) ? "" : $F{NetToPay}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="239" y="205" width="305" height="50" uuid="fcd1ba18-a9de-4574-8d2a-dca76809ad60">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<rectangle>
+					<reportElement x="-14" y="0" width="319" height="30" backcolor="#FFFFFF" uuid="7fd384a8-e368-4a9b-b242-08bc2dfc58e9">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="-14" y="30" width="319" height="19" backcolor="#FFFFFF" uuid="66fe8f8c-7c34-4122-b54f-e6e13103f615">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement mode="Opaque" x="94" y="0" width="1" height="50" uuid="52e1764d-9f12-47fc-a6d3-d41856416262">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="95" y="3" width="200" height="25" uuid="0654c098-7120-4218-8012-a181d069c6ca">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Nombre d'enfants pris en considération pour le calcul de la retenue]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="-11" y="3" width="102" height="25" uuid="b2d92e9b-c8d2-487a-bccc-90ef8ff2c7b0">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Situation de famille]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="31" width="192" height="16" uuid="7e9fb6a0-5495-4bbf-91b4-8365d30c1730"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EmployeeChildrenNumber}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="-10" y="31" width="100" height="16" uuid="6ce953f8-e994-4273-942c-84d62c9b7ef9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EmployeeMaritalStatus}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="180" y="32" width="361" height="48" uuid="0c02fa58-dd86-4032-a222-5b1c312e4c0c"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="360" height="20" backcolor="#D3D3D3" uuid="ebb90dab-8e61-481e-83e8-a6532f382218">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="20" width="360" height="20" backcolor="#FFFFFF" uuid="69784389-b32d-4f62-bbf5-e1ce5ae9489d">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<line>
+					<reportElement mode="Opaque" x="100" y="0" width="1" height="40" uuid="052af455-fde5-4d54-a264-15bc426cdb8e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement mode="Opaque" x="190" y="0" width="1" height="40" uuid="ed1b0e66-b501-4098-8d77-72eb39bff8e5">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement mode="Opaque" x="280" y="0" width="1" height="40" uuid="1aaf3f96-521f-48b9-a2a6-ea014cd2b2a8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="281" y="3" width="80" height="15" uuid="d60215e9-38c3-4e18-8a26-27673314013a">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Ets Secondaire]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="105" y="3" width="80" height="15" uuid="ff2c2934-90b1-4586-9198-0c51ed799fb8">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Code TVA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="205" y="3" width="60" height="15" uuid="fd2fb6fa-9509-41cc-87eb-b60270ae2908">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Catégorie]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="7" y="3" width="80" height="15" uuid="c11c39d5-6b97-420c-bd93-31fc02d0ccf1">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Matricule Fiscal]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="21" width="100" height="16" uuid="5ab6cb83-b92f-4d7a-a5b4-7c3f1c35d69e">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CompanyMatriculeFisc}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="101" y="21" width="88" height="16" uuid="6a610e5b-593b-48d3-ac8b-141033044694"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CompanyTaxIdentNumber}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="191" y="21" width="88" height="16" uuid="21f5ed09-c081-4888-8541-42e4415ed232"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CompanyCategory}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="281" y="21" width="78" height="16" uuid="1b0508be-4568-4f15-a559-31bf82d15631"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CompanySecondaryEstablishment}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isBlankWhenNull="true">
+				<reportElement x="105" y="336" width="180" height="20" uuid="40ddf5a1-cb13-4f17-b655-9ec1a4d9f6e2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeJob}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="190" y="360" width="132" height="20" uuid="6a6b500f-25e1-4c75-a4ce-602b87750d4b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeePeriodWorked}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="425" y="310" width="112" height="20" uuid="6d942a92-d5fc-4c73-a1c3-83826bcae6ad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EmployeeMatriculeCNSS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="200">
+			<staticText>
+				<reportElement x="251" y="0" width="270" height="39" uuid="c15084b2-2bdd-45c7-85ca-d17917ff958a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Je soussigné, certifie exacts et sinsères les renseignements figurants sur le présent certificat et m'expose aux sanctions prévus par la loi pour toute inexactitude.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="66" width="166" height="27" uuid="ef57cfa4-6d35-4b3a-b0f4-1d3eaa9c8065"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cachet et signature de l'employeur ou du débirentier]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="44" width="302" height="18" uuid="283b9acd-460d-4c69-bf60-c87acf5d4a33">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fait à " + $F{CompanyCity} + " le, " +  $F{GenerationDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

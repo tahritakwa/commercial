@@ -1,0 +1,634 @@
+﻿<h2></h2>
+<link href="../kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
+<link href="../kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Poppins:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+
+<style>
+    .legend-item {
+        font: 12px sans-serif;
+        margin: 2px;
+        cursor: pointer;
+    }
+
+        .legend-item .legend-marker {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+        }
+</style>
+<div id="components-directive" style="background-color: #f0f0f7; font-family:roboto">
+    <div class="container-fluid" ng-controller="BaseController as bController" data-ng-init="bController.baseService.ourDashboardService.initCharts()">
+        <br />
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Staffing TurnOver </div>
+                            <i class="fa fa-bar-chart fa-5x" aria-hidden="true" style="color: #f73859;"></i>
+                            <div class="stat-digit"> {{staffingTurnovernumber}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Ind. Staff. TurnOver</div>
+                            <i class="fa fa-line-chart fa-5x" aria-hidden="true" style="color:#acd8d0;"></i>
+                            <div class="stat-digit">{{indirectStaffingTurnoverResult}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Workforce</div>
+                            <i class="fa fa-user-circle-o fa-5x" aria-hidden="true" style="color:#384259"></i>
+                            <div class="stat-digit">{{workforceNumber}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text"> Num. of Sales inv.  {{numberSalesInvoicesResult.DocumentMonth}}/{{numberSalesInvoicesResult.DocumentYear}} </div>
+                            <i class="fa fa-link fa-5x" aria-hidden="true" style="color:#dc3545"></i>
+                            <div class="stat-digit"> {{numberSalesInvoicesResult.TotalNumber}}</div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /# card -->
+            </div>
+            <!-- /# column -->
+        </div><br />
+        <div class="row" style="background-color:#f0f0f7">
+            <!-- Begin Item Per Technologie Chart -->
+            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 portlets" style="padding-top:4%">
+                <div class="demo-section k-content" style="background-color:#f0f0f7">
+
+                    <div>
+
+                        <div kendo-chart id="idChart"
+                             k-theme="['MyTheme']"
+                             k-title="{ text: '% Turnover per Technology', position: 'bottom', font: '1.1rem poppins' }"
+                             k-legend="{ visible: false }"
+                             k-series-defaults="{ type: 'donut'}"
+                             k-series="[
+                             { field: 'PercentageAmount', categoryField: 'CategoryName', padding: 0},
+                         ]"
+                             k-data-source="itemDataForSale"
+                             k-tooltip="{ visible: true,
+                                      format: 'N2',
+                                      template: '#= category # - #= kendo.format(\'{0:P}\', percentage)#'
+                                    }"
+                             k-chart-area="{ background: '#f0f0f7' }"
+                             style="height: 300px; background: #f0f0f7;"></div>
+
+                        <div style="background: #FDFDFD; display:none">
+                            <select id="optional" multiple="multiple" data-placeholder="sélectionner mois..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 chart-legend" style="margin-top: 5%;">
+                <span ng-repeat="x in Field" class="legend-item" ng-click="onLegendClick($event)">
+                    <span>{{x.series}}</span>
+                    <br />
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:{{x.value}}; height:4px" ng-style="{'background-color': x.style}">
+
+                        </div>
+                    </div> <br />
+                </span>
+            </div>
+            <!-- End Item Per Technologie Chart -->
+            <!-- Begin Supplier Invoice Chart -->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
+                <div id="mapdiv" style="width: 100%; height:100%"></div>
+                <!-- /# card -->
+
+            </div>
+        </div>
+        <div ng-show="$root.company.Code != 'C002'" class="row">
+            <div class="col-lg-12 col-md-12 xol-sm-12 portlets" style="padding-top: 10px;">
+                <div class="demo-section k-content">
+                    <div>
+                        <div kendo-chart
+                             k-theme="['test']"
+                             k-title="{ text: 'Turnover per Month', position: 'bottom' ,font: '1.1rem poppins' }"
+                             k-legend="{ position: 'bottom' }"
+                             k-value-axis="invoiceCustomerValueAxis"
+                             k-series-defaults="{ type: 'area',
+                         area: {
+                                line: {
+                                    style: 'smooth'}},
+                         }"
+                             k-category-axis=" { categories: listOfMonths,
+                         majorGridLines: {
+                        visible: false},
+                             labels: {
+      rotation: 30
+    }
+                             }"
+                             k-series="seriesInvoiceCustomerData"
+                             k-series-hover="onSeriesHover"
+                             k-tooltip="invoiceCustomerTooltip"
+                             k-chart-area="{ background: '#f0f0f7' }"
+                             style="height: 350px; background-color:#f0f0f7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End supplier Invoice Chart -->
+        <!-- Begin Item Per Technologie Chart by month -->
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 portlets" style="padding-top: 10px; margin-bottom: 35px;">
+                <div class="demo-section k-content">
+                    <div>
+                        <div kendo-chart
+                             k-theme="['MyTheme']"
+                             k-title="{ text: 'Turnover per Month per Technology', position: 'bottom', font: '1.1rem poppins' }"
+                             k-legend="{ position: 'bottom'}"
+                             k-category-axis=" [{ categories: listOfCatField,   majorGridLines: {
+                             visible: false },
+                             majorTicks: { visible: true },
+                             labels: { rotation: 30 }}]"
+                             k-value-axis="techSalesValueAxis"
+                             k-series-defaults="{type: 'line', style: 'smooth'}"
+                             k-series="seriesTechByMonth"
+                             k-series-hover="onSeriesHover"
+                             k-tooltip="techSalesTooltip"
+                             k-chart-area="{ background: '#f0f0f7' }"
+                             style="height: 320px; background-color:#f0f0f7"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 portlets">
+                <div class="demo-section k-content">
+
+                    <div kendo-chart
+                         k-theme="['MyTheme']"
+                         k-title="{ text: 'Expenditure per Month', position: 'bottom', font: '1.1rem poppins' }"
+                         k-value-axis="invoiceSupplierValueAxis"
+                         k-legend="{ position: 'bottom' }"
+                         k-series-defaults="{ type: 'column'}"
+                         k-category-axis=" { majorGridLines: {
+                        visible: false
+                    },  labels: {
+      rotation: 30
+    }}"
+                         k-series="[
+                             { field: 'DocumentHtprice',
+                                categoryField: 'MonthName',
+                                name: 'Amount per month',
+                                color: '#7AC7C4' }
+                         ]"
+                         k-data-source="invoiceSupplierData"
+                         k-series-hover="onSeriesHover"
+                         k-tooltip="invoiceSupplierTooltip"
+                         k-chart-area="{ background: '#f0f0f7' }"
+                         style="height: 300px; background: #f0f0f7;"></div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /# column -->
+        <!-- End Item Per Technologie Chart by month -->
+        <!-- Begin Customer Invoice Chart -->
+
+
+    </div>
+
+</div>
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #vmap {
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    .jqvmap-region {
+        cursor: default !important;
+    }
+
+    .map-pin {
+        width: 64px;
+        height: 50px;
+        position: absolute;
+        top: -25px;
+        left: -32px;
+        background-size: 32px 32px;
+        background-repeat: no-repeat;
+        text-align: center;
+        background-position: top center;
+        color: #888;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+        .map-pin span {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            left: 0;
+        }
+
+    .red {
+        background-image: url('../assets/template/map/pk.png');
+    }
+
+
+
+    /* Setup basic CSS for Label */
+    .jqvmap-pin {
+        font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+        cursor: default;
+    }
+
+    /* Reposition Labels that are not quite right ( labels are centered in shape, and sometimes need tweaking ) */
+
+    #jqvmap1_fl_pin {
+        margin-left: 5%;
+    }
+
+    .jqvmap-zoomin, .jqvmap-zoomout {
+        position: absolute;
+        left: 10px;
+        border-radius: 3px !important;
+        background: #1ab394 !important;
+        padding: 3px;
+        color: white !important;
+        cursor: pointer !important;
+        line-height: 10px;
+        text-align: center !important;
+        box-sizing: content-box !important;
+    }
+
+    .k-group {
+        display: inline-block;
+        text-align: center;
+        white-space: nowrap;
+        border-style: solid;
+        /*margin: 10px auto;*/
+    }
+
+    .dropdown-header {
+        border-width: 0 0 1px 0;
+        text-transform: uppercase;
+    }
+
+        .dropdown-header > span {
+            display: inline-block;
+            padding: 10px;
+        }
+
+            .dropdown-header > span:first-child {
+                width: 50px;
+            }
+
+    .k-list-container > .k-footer {
+        padding: 10px;
+    }
+
+    .selected-value {
+        display: inline-block;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        background-size: 100%;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+
+    #customers-list .k-item {
+        line-height: 1em;
+        min-width: 300px;
+    }
+
+    /* Material Theme padding adjustment*/
+
+    .k-material #customers-list .k-item,
+    .k-material #customers-list .k-item.k-state-hover,
+    .k-materialblack #customers-list .k-item,
+    .k-materialblack #customers-list .k-item.k-state-hover {
+        padding-left: 5px;
+        border-left: 0;
+    }
+
+    #customers-list .k-item > span {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: top;
+        margin: 20px 10px 10px 5px;
+    }
+
+        #customers-list .k-item > span:first-child {
+            -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+    #customers-list h3 {
+        font-size: 1.2em;
+        font-weight: normal;
+        margin: 0 0 1px 0;
+        padding: 0;
+    }
+
+    #customers-list p {
+        margin: 0;
+        padding: 0;
+        font-size: .8em;
+    }
+</style>
+<script>
+    var themes = kendo.dataviz.ui.themes;
+    var MyTheme = kendo.deepExtend(
+        // Deep copy
+        {},
+
+        // Base theme
+        themes.bootstrap,
+
+        {
+            chart: {
+                // Can contain any chart settings
+                seriesColors: ["#F73859", "#384259", "#7AC7C4", "#FFB6B9", "#BBDED6", "#FAE3D9"]
+            }
+
+        }
+    );
+    var test = kendo.deepExtend(
+        // Deep copy
+        {},
+
+        // Base theme
+        themes.bootstrap,
+
+        {
+            chart: {
+                // Can contain any chart settings
+                seriesColors: ["#4db0ab", "#BBDED6"]
+            }
+
+        }
+    );
+    themes.MyTheme = MyTheme;
+    themes.test = test;
+</script>
+<script>
+
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+    // svg path for plane icon
+    var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+
+    AmCharts.makeChart("mapdiv", {
+        type: "map",
+        dataProvider: {
+            map: "worldLow",
+            projection: "miller",
+            linkToObject: "london",
+
+            images: [{
+                id: "london",
+                color: "#384259",
+                svgPath: targetSVG,
+                title: "London",
+                latitude: 51.5002,
+                longitude: -0.1262,
+                scale: 2,
+                zoomLevel: 7,
+                zoomLongitude: 24,
+                zoomLatitude: 45,
+                lines: [{
+                    latitudes: [51.5002, 48.8567],
+                    longitudes: [-0.1262, 2.3510]
+                },
+                {
+                    latitudes: [48.8567, 43.95865],
+                    longitudes: [2.3510, 1]
+                },
+                {
+                    latitudes: [48.8567, 45],
+                    longitudes: [2.3510, 5]
+                },
+                {
+                    latitudes: [48.8567, 43],
+                    longitudes: [2.3510, 1.3510]
+                },
+                {
+                    latitudes: [48.8567, 47],
+                    longitudes: [2.3510, 1.3510]
+                },
+                {
+                    latitudes: [48.8567, 45.8],
+                    longitudes: [2.3510, 1.3510]
+                },
+                {
+                    latitudes: [48.8567, 50],
+                    longitudes: [2.3510, 2.5]
+                },
+                {
+                    latitudes: [48.8567, 48],
+                    longitudes: [2.3510, 0]
+
+                },
+                {
+                    latitudes: [48.8567, 47.8567],
+                    longitudes: [2.3510, 4.3510]
+                },
+                {
+                    latitudes: [48.8567, 35],
+                    longitudes: [2.3510, 9.35]
+                },
+                {
+                    latitudes: [35, 36.5],
+                    longitudes: [9.35, 9.5]
+                },
+                {
+                    latitudes: [35, 34],
+                    longitudes: [9.35, 10]
+                },
+                {
+                    latitudes: [48.8567, 50.68],
+                    longitudes: [2.3510, 5]
+                }, {
+                    latitudes: [51.5002, 52.5002],
+                    longitudes: [-0.1262, -2.1262]
+                },
+                {
+                    latitudes: [48.8567, 47.8567],
+                    longitudes: [2.3510, 6]
+                }
+                ],
+
+
+
+            },
+            {
+                svgPath: targetSVG,
+                title: "Reading RG1 4AP",
+                latitude: 52.5002,
+                longitude: -2.1262,
+            },
+            {
+                svgPath: targetSVG,
+                title: "Paris",
+                latitude: 48.8567,
+                color: "#000000",
+                longitude: 2.3510,
+                scale: 2,
+            },
+            {
+                svgPath: targetSVG,
+                title: "Balma Cedex",
+                latitude: 43.95865,
+                longitude: 1
+            },
+            {
+                svgPath: targetSVG,
+                title: "BISCARROSSE Cedex",
+                latitude: 45,
+                longitude: 5
+            },
+            {
+                svgPath: targetSVG,
+                title: "Le Mans Cedex 2",
+                latitude: 43,
+                longitude: 1.3510
+            },
+            {
+                svgPath: targetSVG,
+                title: "BOULOGNE-BILLANCOURT",
+                latitude: 47,
+                longitude: 1.3510
+            },
+            {
+                svgPath: targetSVG,
+                title: "Verrières-le-Buisson",
+                latitude: 45.8,
+                longitude: 1.3510
+            },
+            {
+                svgPath: targetSVG,
+                title: "MONTROUGE",
+                latitude: 48,
+                longitude: 0
+            },
+            {
+                svgPath: targetSVG,
+                title: "Clamart",
+                latitude: 47.8567,
+                longitude: 6
+            },
+            {
+                svgPath: targetSVG,
+                title: "Saint-Cloud Cedex",
+                latitude: 45,
+                longitude: 958
+            },
+            {
+                svgPath: targetSVG,
+                title: "Levallois-Perret",
+                latitude: 50,
+                longitude: 2.5
+            },
+            {
+                svgPath: targetSVG,
+                title: "Ile de France",
+                latitude: 47.8567,
+                longitude: 4.3510
+            },
+            {
+                svgPath: targetSVG,
+                title: "Tunis",
+                latitude: 36.5,
+                longitude: 9.5
+            },
+            {
+                svgPath: targetSVG,
+                title: "Tunisia",
+                color: "#000000",
+                latitude: 35,
+                scale: 1.5,
+                longitude: 9.35
+            },
+            {
+                svgPath: targetSVG,
+                title: "Sfax",
+                latitude: 34.23,
+                longitude: 10
+            },
+            {
+                svgPath: targetSVG,
+                title: "Bruxelle",
+                latitude: 50.68,
+                longitude: 5
+            }
+            ]
+        },
+
+        areasSettings: {
+            unlistedAreasColor: "#BBDED6"
+        },
+
+        imagesSettings: {
+            color: "#F73859",
+            rollOverColor: "#F73859",
+            selectedColor: "#000000"
+        },
+
+        linesSettings: {
+            color: "#CC0000",
+            alpha: 0.4
+        },
+
+
+        backgroundZoomsToTop: true,
+        linesAboveImages: true,
+
+        "export": {
+            "enabled": false
+        }
+    });
+
+    $(window).on("resize", function () {
+        kendo.resize($(".demo-section"));
+    });
+</script>
+
+<!-- scripit init-->

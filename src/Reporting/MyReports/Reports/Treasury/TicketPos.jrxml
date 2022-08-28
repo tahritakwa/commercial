@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TicketPos" pageWidth="250" pageHeight="842" columnWidth="210" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="LocalReport/Local" isIgnorePagination="true" uuid="027aab77-0a4f-4e30-a23d-168ec6d27975">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data\HeaderAdapter.xml"/>
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="false"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="net.sf.jasperreports.data.adapter" value="/data/HeaderAdapter.xml"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="605"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="385"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8282/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/Treasury/TicketPos/TicketPos_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/Treasury/TicketPos/TicketPos"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#F7F5F5">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table 2_CH" mode="Opaque" backcolor="#F2F0F0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="DatasetTicketLines" uuid="13537f74-6476-49cf-b130-175ad7227379">
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="380"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="609"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data\HeaderAdapter.xml"/>
+		<parameter name="uriKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authTypeKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authParametersKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="languageKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="verbKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="current_user" class="java.lang.String">
+			<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="telerik" class="java.lang.String">
+			<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="report_sourceUrl" class="java.lang.String">
+			<parameterDescription><![CDATA[Url parameter for report]]></parameterDescription>
+			<defaultValueExpression><![CDATA["http://localhost:5000/api"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="idTicket" class="java.lang.String">
+			<defaultValueExpression><![CDATA["13"]]></defaultValueExpression>
+		</parameter>
+		<queryString language="WebServiceQuery">
+			<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "Quantity",
+    "expression" : "Quantity"
+  }, {
+    "name" : "Designation",
+    "expression" : "Designation"
+  }, {
+    "name" : "UnitSalesPrice",
+    "expression" : "UnitSalesPrice"
+  }, {
+    "name" : "TtcAmount",
+    "expression" : "TtcAmount"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/treasuryReporting/getTicketLines/$P!{idTicket}"
+  },
+  "headersMap" : {
+    "Telerik" : "$P!{telerik}",
+    "user" : "$P!{current_user}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+		</queryString>
+		<field name="Quantity" class="java.lang.Double"/>
+		<field name="Designation" class="java.lang.String"/>
+		<field name="UnitSalesPrice" class="java.lang.String"/>
+		<field name="TtcAmount" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="DatasetTaxResume" uuid="f18d774a-c0bb-47ac-9551-88b7037765bd">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data\HeaderAdapter.xml"/>
+		<parameter name="uriKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authTypeKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authParametersKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="languageKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="verbKey" class="java.lang.Object" isForPrompting="false"/>
+		<queryString language="WebServiceQuery">
+			<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "TaxAmount",
+    "expression" : "TaxAmount"
+  }, {
+    "name" : "HtAmount",
+    "expression" : "HtAmount"
+  }, {
+    "name" : "TtcAmount",
+    "expression" : "TtcAmount"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "http://localhost:5000/api/treasuryReporting/getTicketTaxResume/7"
+  },
+  "headersMap" : {
+    "Telerik" : "Telerik",
+    "user" : "demo@spark-it.fr"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+		</queryString>
+		<field name="TaxAmount" class="java.lang.String"/>
+		<field name="HtAmount" class="java.lang.String"/>
+		<field name="TtcAmount" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="DatasetTicketPayment" uuid="5b0ba2d8-dd64-4559-b93e-b532b15905c5">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="data\HeaderAdapter.xml"/>
+		<parameter name="uriKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authTypeKey" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="authParametersKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="languageKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="verbKey" class="java.lang.Object" isForPrompting="false"/>
+		<parameter name="current_user" class="java.lang.String">
+			<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="telerik" class="java.lang.String">
+			<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="report_sourceUrl" class="java.lang.String">
+			<parameterDescription><![CDATA[Url parameter for report]]></parameterDescription>
+			<defaultValueExpression><![CDATA["http://localhost:5000/api"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="idTicket" class="java.lang.String">
+			<defaultValueExpression><![CDATA["13"]]></defaultValueExpression>
+		</parameter>
+		<queryString language="WebServiceQuery">
+			<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "MethodName",
+    "expression" : "MethodName"
+  }, {
+    "name" : "Amount",
+    "expression" : "Amount"
+  }, {
+    "name" : "ReturnedAmount",
+    "expression" : "ReturnedAmount"
+  }, {
+    "name" : "ReceivedAmount",
+    "expression" : "ReceivedAmount"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/treasuryReporting/getTicketPayment/$P!{idTicket}"
+  },
+  "headersMap" : {
+    "Telerik" : "$P!{telerik}",
+    "user" : "$P!{current_user}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+		</queryString>
+		<field name="MethodName" class="java.lang.String"/>
+		<field name="Amount" class="java.lang.String"/>
+		<field name="ReturnedAmount" class="java.lang.String"/>
+		<field name="ReceivedAmount" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="uriKey" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="authTypeKey" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="authParametersKey" class="java.lang.Object" isForPrompting="false"/>
+	<parameter name="languageKey" class="java.lang.Object" isForPrompting="false"/>
+	<parameter name="verbKey" class="java.lang.Object" isForPrompting="false"/>
+	<parameter name="current_user" class="java.lang.String">
+		<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telerik" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="report_sourceUrl" class="java.lang.String">
+		<parameterDescription><![CDATA[Url parameter for report]]></parameterDescription>
+		<defaultValueExpression><![CDATA["http://localhost:5000/api"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idTicket" class="java.lang.String">
+		<defaultValueExpression><![CDATA["13"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="WebServiceQuery">
+		<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "TicketCode",
+    "expression" : "TicketCode"
+  }, {
+    "name" : "SellerName",
+    "expression" : "SellerName"
+  }, {
+    "name" : "CreationDate",
+    "expression" : "CreationDate"
+  }, {
+    "name" : "CashCode",
+    "expression" : "CashCode"
+  }, {
+    "name" : "TtcAmount",
+    "expression" : "TtcAmount"
+  }, {
+    "name" : "UsedCurrency",
+    "expression" : "UsedCurrency"
+  }, {
+    "name" : "CompanyName",
+    "expression" : "Company.CompanyName"
+  }, {
+    "name" : "CompanyAdress",
+    "expression" : "Company.CompanyAdress"
+  }, {
+    "name" : "CompanyEmail",
+    "expression" : "Company.CompanyEmail"
+  }, {
+    "name" : "CompanyWebSite",
+    "expression" : "Company.CompanyWebSite"
+  }, {
+    "name" : "CompanyCountry",
+    "expression" : "Company.CompanyCountry"
+  }, {
+    "name" : "CompanyCity",
+    "expression" : "Company.CompanyCity"
+  }, {
+    "name" : "CompanyTel",
+    "expression" : "Company.CompanyTel"
+  }, {
+    "name" : "StarkLogo",
+    "expression" : "Company.StarkLogo"
+  }, {
+    "name" : "CompanyLogo",
+    "expression" : "Company.CompanyLogo"
+  }, {
+    "name" : "TotalTicketLine",
+    "expression" : "TotalTicketLine"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/treasuryReporting/getTicketPosReport/$P!{idTicket}"
+  },
+  "headersMap" : {
+    "Telerik" : "$P!{telerik}",
+    "user" : "$P!{current_user}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+	</queryString>
+	<field name="TicketCode" class="java.lang.String"/>
+	<field name="SellerName" class="java.lang.String"/>
+	<field name="CreationDate" class="java.lang.String"/>
+	<field name="CashCode" class="java.lang.String"/>
+	<field name="TtcAmount" class="java.lang.String"/>
+	<field name="UsedCurrency" class="java.lang.String"/>
+	<field name="CompanyName" class="java.lang.String"/>
+	<field name="CompanyAdress" class="java.lang.String"/>
+	<field name="CompanyEmail" class="java.lang.String"/>
+	<field name="CompanyWebSite" class="java.lang.String"/>
+	<field name="CompanyCountry" class="java.lang.String"/>
+	<field name="CompanyCity" class="java.lang.String"/>
+	<field name="CompanyTel" class="java.lang.String"/>
+	<field name="StarkLogo" class="java.lang.String"/>
+	<field name="CompanyLogo" class="java.lang.String"/>
+	<field name="TotalTicketLine" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="21" width="210" height="20" uuid="5f5428d0-91b3-44fb-a4dd-c2205b44cc2a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CompanyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="48" width="210" height="19" uuid="6e121287-de0c-4226-8762-d56e80453958"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{Receipt} + " N°: " +$F{TicketCode}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement x="0" y="-3" width="210" height="23" uuid="61f6b093-68bc-465d-a1dc-d131daec49db">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[IF($F{CompanyLogo} != "",new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($F{CompanyLogo}.getBytes())),null)]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="6" width="104" height="13" uuid="3ec2bb6d-d517-4b27-98e6-498d7252df60"/>
+				<textFieldExpression><![CDATA[$F{CashCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="28" width="101" height="19" uuid="7f6f6f39-fee8-473a-968f-943aaa1ac179"/>
+				<textFieldExpression><![CDATA[$F{CreationDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="47" width="159" height="20" uuid="2bc5d9d4-4a9b-4e19-8bbe-d3d6d12bea89"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[*************************]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="6" width="102" height="13" uuid="dc407f41-b3cd-492d-9a5a-f8a229e156d1"/>
+				<textFieldExpression><![CDATA[$R{CashRegister}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="157" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="-11" y="0" width="221" height="30" isPrintWhenDetailOverflows="true" uuid="22302a0b-ea22-4191-b55d-c040b73d0a55">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
+					<datasetRun subDataset="DatasetTicketLines" uuid="a862328e-fbbe-4cc9-b948-dc5168dc4319">
+						<datasetParameter name="uriKey">
+							<datasetParameterExpression><![CDATA[$P{uriKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="authTypeKey">
+							<datasetParameterExpression><![CDATA[$P{authTypeKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="authParametersKey">
+							<datasetParameterExpression><![CDATA[$P{authParametersKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="languageKey">
+							<datasetParameterExpression><![CDATA[$P{languageKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="verbKey">
+							<datasetParameterExpression><![CDATA[$P{verbKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="current_user">
+							<datasetParameterExpression><![CDATA[$P{current_user}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="telerik">
+							<datasetParameterExpression><![CDATA[$P{telerik}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="idTicket">
+							<datasetParameterExpression><![CDATA[$P{idTicket}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="report_sourceUrl">
+							<datasetParameterExpression><![CDATA[$P{report_sourceUrl}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="30" uuid="194f5692-8e85-4566-b66b-e897d2554d9d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="20" uuid="1314ddde-95ea-48b7-96ed-b34521e41f8d"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$R{Quantity}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="30" height="20" isPrintWhenDetailOverflows="true" uuid="e12a433e-6dbb-45b6-ba34-e0501d747de3">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="98" uuid="2ac3c0dc-2f19-4fd7-9701-aff91cec331d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="98" height="20" isPrintWhenDetailOverflows="true" uuid="76041293-7187-408e-9a75-8dc42d0d3e6e">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Left"/>
+								<textFieldExpression><![CDATA[$R{Designation}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="98" height="20" isPrintWhenDetailOverflows="true" uuid="777fa9a4-747c-4c20-8abe-b2d135401987">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Left">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Designation}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="48" uuid="f5108509-79ad-4c78-95af-750349d1904d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="48" height="20" uuid="81c3d58a-3178-4b97-8ca9-a34152ba9554"/>
+								<textElement textAlignment="Center" verticalAlignment="Top"/>
+								<textFieldExpression><![CDATA[$R{PU}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="48" height="20" isPrintWhenDetailOverflows="true" uuid="6d7710a0-64ff-44bc-8508-1cc0379b4cd8">
+									<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Center">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{UnitSalesPrice}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="45" uuid="da2c5861-c3a8-46b0-876c-5ab70a9de21c">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="45" height="20" uuid="c3f01b82-175d-4238-9388-038982f4bbea"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$R{TotalPrice}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="45" height="20" isPrintWhenDetailOverflows="true" uuid="1ac443b0-13fb-4552-a94e-c1799dfff091">
+									<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{TtcAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="108" y="64" width="100" height="18" uuid="49776e8d-807c-4196-97cc-7a04b1c24ec8"/>
+				<textFieldExpression><![CDATA[$F{TtcAmount} + " "+$F{UsedCurrency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="21" y="93" width="162" height="20" uuid="5c73bd0e-6f85-4661-af87-3a18b96f4dcd"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[*************************]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="1" y="107" width="200" height="37" uuid="013b72a6-8a82-45a5-b103-556a47b6ffe8">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="Blank">
+					<datasetRun subDataset="DatasetTicketPayment" uuid="670cf591-e1bb-42cd-9d60-9a136e19fbb6">
+						<datasetParameter name="uriKey">
+							<datasetParameterExpression><![CDATA[$P{uriKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="authTypeKey">
+							<datasetParameterExpression><![CDATA[$P{authTypeKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="authParametersKey">
+							<datasetParameterExpression><![CDATA[$P{authParametersKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="languageKey">
+							<datasetParameterExpression><![CDATA[$P{languageKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="verbKey">
+							<datasetParameterExpression><![CDATA[$P{verbKey}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="current_user">
+							<datasetParameterExpression><![CDATA[$P{current_user}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="idTicket">
+							<datasetParameterExpression><![CDATA[$P{idTicket}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="report_sourceUrl">
+							<datasetParameterExpression><![CDATA[$P{report_sourceUrl}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="telerik">
+							<datasetParameterExpression><![CDATA[$P{telerik}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="50" uuid="1a0674bc-09e4-4723-aeed-629280b4c7c3">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader style="Table 2_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="1eb568af-ce0f-42a1-9bfb-6d2db78dd1f3"/>
+								<textFieldExpression><![CDATA[$R{Type}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 2_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="dd8e8032-6501-4ca8-a8d5-911f3c527e6c"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MethodName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="24fbee2f-9b08-4d83-a358-dc5887d8bf93">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader style="Table 2_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="e49cea64-5094-49b9-9b4a-920bdc8413f2"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$R{Amount}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 2_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="8a2c870e-72ed-41b4-9918-63aca98f5baa"/>
+								<textElement textAlignment="Right">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{Amount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="a1fd8bbe-4597-4eaa-8e46-fac77f9c7a21">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table 2_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="5d551838-5b54-45aa-affd-1508524f7051"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$R{ReceivedAmount}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 2_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="4afba1f6-2f8a-49d0-93b9-fb5ed5d9655a"/>
+								<textElement textAlignment="Right">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ReceivedAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="efce21c5-cd43-4b1f-8764-72835bc4a4e3">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader style="Table 2_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="42e06322-7c89-4954-9328-3a9af3892130"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$R{ReturnedAmount}]]></textFieldExpression>
+							</textField>
+						</jr:tableHeader>
+						<jr:detailCell style="Table 2_TD" height="20">
+							<textField textAdjust="StretchHeight">
+								<reportElement positionType="Float" x="0" y="0" width="50" height="20" uuid="8255613d-f8df-42a0-bec4-cd4e9b752108"/>
+								<textElement textAlignment="Right">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ReturnedAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="0" y="43" width="100" height="17" uuid="3f04466e-4694-4404-a8f8-d83418372e6f"/>
+				<textFieldExpression><![CDATA[$R{TotalTicketLine} +" : "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="108" y="41" width="100" height="24" uuid="8d4f1795-bee4-41ea-a5fd-ae2ab1ff10d6"/>
+				<textFieldExpression><![CDATA[$F{TotalTicketLine}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="2" y="66" width="84" height="16" uuid="d6b2f368-161d-45a1-8c56-62e02a018b6a"/>
+				<textFieldExpression><![CDATA[$R{TtcAmount} + " : "]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="24" y="10" width="166" height="20" uuid="2e02b6f4-e172-487c-9ffa-b290be3b87e2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$R{TicketGoodByeMessage}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="30" y="26" width="152" height="13" uuid="65c9f8a0-46e2-4ee5-970c-dd638c3fd89a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None"/>
+				<textFieldExpression><![CDATA[$F{CompanyWebSite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

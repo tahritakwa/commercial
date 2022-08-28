@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CnssSummary" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" resourceBundle="Resources/LocalReport/Local_en_EN" uuid="8ec3b03c-5c3f-4905-9b43-5aece04ad577">
+	<property name="net.sf.jasperreports.data.adapter" value="/data/HeaderAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="HeaderAdapter"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8282/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/MultiLang/ESN/PayRoll/CnssSummary/CnssSummary_en_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/MultiLang/ESN/PayRoll/CnssSummary/CnssSummary_en"/>
+	<parameter name="report_sourceUrl" class="java.lang.String">
+		<defaultValueExpression><![CDATA["http://localhost:5001/api"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="idCnssDeclaration" class="java.lang.String">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="current_user" class="java.lang.String">
+		<defaultValueExpression><![CDATA["demo@spark-it.fr"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telerik" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Telerik"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="WebServiceQuery">
+		<![CDATA[{
+  "getparameters" : { },
+  "fields" : [ {
+    "name" : "SocialSecurityRate",
+    "expression" : "SocialSecurityRate"
+  }, {
+    "name" : "SocialSecurityAmount",
+    "expression" : "SocialSecurityAmount"
+  }, {
+    "name" : "WorkAccidentRate",
+    "expression" : "WorkAccidentRate"
+  }, {
+    "name" : "WorkAccidentAmount",
+    "expression" : "WorkAccidentAmount"
+  }, {
+    "name" : "Total",
+    "expression" : "Total"
+  }, {
+    "name" : "NumberOfDaysLate",
+    "expression" : "NumberOfDaysLate"
+  }, {
+    "name" : "AmountOfLatePenalties",
+    "expression" : "AmountOfLatePenalties"
+  }, {
+    "name" : "AmountToBePaid",
+    "expression" : "AmountToBePaid"
+  }, {
+    "name" : "EmployerName",
+    "expression" : "CnssDeclarationInformationsViewModel.EmployerName"
+  }, {
+    "name" : "EmployerAdress",
+    "expression" : "CnssDeclarationInformationsViewModel.EmployerAdress"
+  }, {
+    "name" : "EmployerNumber",
+    "expression" : "CnssDeclarationInformationsViewModel.EmployerNumber"
+  }, {
+    "name" : "CnssAffiliation",
+    "expression" : "CnssDeclarationInformationsViewModel.CnssAffiliation"
+  }, {
+    "name" : "Currency",
+    "expression" : "CnssDeclarationInformationsViewModel.Currency"
+  }, {
+    "name" : "BR",
+    "expression" : "CnssDeclarationInformationsViewModel.BR"
+  }, {
+    "name" : "Trimester",
+    "expression" : "CnssDeclarationInformationsViewModel.Trimester"
+  }, {
+    "name" : "Year",
+    "expression" : "CnssDeclarationInformationsViewModel.Year"
+  }, {
+    "name" : "ElaborationDate",
+    "expression" : "CnssDeclarationInformationsViewModel.ElaborationDate"
+  }, {
+    "name" : "TotalAmount",
+    "expression" : "CnssDeclarationInformationsViewModel.TotalAmount"
+  }, {
+    "name" : "ExploitationCode",
+    "expression" : "CnssDeclarationInformationsViewModel.ExploitationCode"
+  } ],
+  "options" : {
+    "contentType" : "application/json",
+    "rootPath" : "",
+    "baseUrl" : "$P!{report_sourceUrl}/payRollReporting/getCnssDeclarationSummary/$P!{idCnssDeclaration}"
+  },
+  "headersMap" : {
+    "User" : "$P!{current_user}",
+    "Telerik" : "$P!{telerik}"
+  },
+  "queryData" : "",
+  "GETParameters" : { }
+}]]>
+	</queryString>
+	<field name="SocialSecurityRate" class="java.lang.String"/>
+	<field name="SocialSecurityAmount" class="java.lang.String"/>
+	<field name="WorkAccidentRate" class="java.lang.String"/>
+	<field name="WorkAccidentAmount" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
+	<field name="NumberOfDaysLate" class="java.lang.Integer"/>
+	<field name="AmountOfLatePenalties" class="java.lang.String"/>
+	<field name="AmountToBePaid" class="java.lang.String"/>
+	<field name="EmployerName" class="java.lang.String"/>
+	<field name="EmployerAdress" class="java.lang.String"/>
+	<field name="EmployerNumber" class="java.lang.Integer"/>
+	<field name="CnssAffiliation" class="java.lang.String"/>
+	<field name="Currency" class="java.lang.String"/>
+	<field name="BR" class="java.lang.String"/>
+	<field name="Trimester" class="java.lang.Integer"/>
+	<field name="Year" class="java.lang.Integer"/>
+	<field name="ElaborationDate" class="java.lang.String"/>
+	<field name="TotalAmount" class="java.lang.String"/>
+	<field name="ExploitationCode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="315" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="0" width="535" height="85" uuid="79a0abf2-2907-43fc-b324-0d43c56c0ab9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["Resources/image/CnssLogo.PNG"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="90" y="90" width="380" height="30" uuid="81a22745-5b8d-43f4-95a5-d970cf3c43ce">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="18" isBold="true" pdfFontName="Helvetica-Bold" pdfEncoding=""/>
+				</textElement>
+				<text><![CDATA[كشف إجمالي للأجور المصرح بها]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="120" width="380" height="30" uuid="9d16f54d-2131-4561-9620-a546c3953007"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="18" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Etat Récapitulatif des Salaires Déclarés
+]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="269" y="160" width="280" height="150" uuid="65084a2f-703d-4b3b-9dd0-412578879e25">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<staticText>
+					<reportElement x="6" y="5" width="160" height="15" uuid="e7e55ef2-5a50-4e65-ac96-cae0c6b33bc1">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Arial" size="11"/>
+					</textElement>
+					<text><![CDATA[Nom et adresse de l'employeur]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="173" y="5" width="100" height="15" uuid="0848b32d-41d1-49b8-bdbf-beccb731030f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="11"/>
+					</textElement>
+					<text><![CDATA[اسم و عنوان المؤجر]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="6" y="29" width="266" height="20" uuid="68a611df-9423-489c-b912-466624881a49">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EmployerName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="6" y="104" width="264" height="30" uuid="79c6a96e-c863-491c-97fb-c7a3939f1ac6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EmployerAdress}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="10" y="240" width="60" height="40" uuid="74641edc-c30a-4ea5-a6fa-aa86d7613cb2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[الثلاثية
+Trimestre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="240" width="60" height="40" uuid="3fd8efe9-aadc-48c8-985b-8b39b5bd1a8e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[السنـة
+Année]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="280" width="60" height="30" uuid="8272a056-6d1f-4e7b-9eff-9ebc59f95b9d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Trimester}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="280" width="60" height="30" uuid="477b64b6-353f-48d9-a54c-384bfa873e3f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="160" width="120" height="40" uuid="af2410e8-e01f-4f43-b8da-333a9037af81">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[رقم انخراط المؤجر
+Numéro Employeur]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="200" width="120" height="30" uuid="9941f150-d3be-42dd-a1fb-4a316c54cdec">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CnssAffiliation}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="139" y="160" width="120" height="40" uuid="de9db65a-addc-4c7f-ad47-3705cab35bff">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[المكتب
+Bureau]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="200" width="120" height="30" uuid="a65e596b-f03e-4e22-937c-24d11ee286a4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="139" y="240" width="120" height="40" uuid="9b79574d-53f9-4a48-a5b4-656afab7a3bf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[رمز الاستغلال
+Code d'exploitation]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="280" width="120" height="30" uuid="7fcf23b6-970a-4725-8996-e05086252bd0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ExploitationCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="470" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="120" height="40" uuid="a80ebf3d-9719-4883-9378-b3ea6432f632">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[الأجور المصرح بها  
+Salaires déclarés]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="10" width="419" height="20" uuid="aea27d7b-ee3d-4c42-b8c0-dbe91ce9d458">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Cotisations االإشتراكات]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="30" width="251" height="20" uuid="363b38f3-f11d-4c9e-be9d-de49810cbe21">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Régime النظـام]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="30" width="113" height="20" uuid="b62753e8-6b81-470a-89df-c114389e37c8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Montant المبلغ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="30" width="55" height="20" uuid="a79bfd28-027f-4dc7-8739-541df51d11d3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Taux النسبة]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="50" width="120" height="55" uuid="ec27e269-5fef-49cf-b16d-6af6276afea5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TotalAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="50" width="251" height="25" uuid="84d8b2fa-3bbf-44d1-8909-2fe906149a81">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sécurité sociale الضمـان االإجتماعـي]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="75" width="251" height="30" uuid="c06d9b26-93f6-4b83-b86a-8431907409e1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ حـوادث الشغـل والأمـراض المهنيـة
+Accidents du Travail et Maladies Professionnelles]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="381" y="50" width="55" height="25" uuid="693a2cfa-4c3b-4ac7-a98b-1147bb69690d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SocialSecurityRate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="50" width="113" height="25" uuid="e05edf08-975a-4af5-9250-ec72d0bc657e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SocialSecurityAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="75" width="55" height="30" uuid="fa259945-8626-45eb-abd6-c261935a384d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WorkAccidentRate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="75" width="113" height="30" uuid="45141df5-dfa5-4407-9c0a-fb353f0d1eff">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WorkAccidentAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="105" width="113" height="30" uuid="92ad2118-f2d0-473a-9dcf-8432769dd813">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="381" y="105" width="55" height="30" uuid="5d19085a-2d8e-4c82-9965-fffb488861b5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[الجملة
+Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="145" width="170" height="30" uuid="a7a871b8-8e23-4514-8acb-ccc709b4e4f5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[عدد أيام التأخير
+Nombre de jours de retard]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="206" y="145" width="50" height="30" uuid="83517989-defe-4e42-bb38-9423120e9213">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NumberOfDaysLate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="145" width="113" height="30" uuid="1b12eadc-a445-44ed-b10d-0652ef5cf4d3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AmountOfLatePenalties}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="145" width="180" height="30" uuid="55899cc0-fd67-43d9-8216-cd77ca4f616b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[مبلغ خطايا التأخير
+Montant des pénalités de retard]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="436" y="185" width="113" height="30" uuid="2efa8c2b-9935-4ce7-b998-66475fc9c47c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AmountToBePaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="185" width="180" height="30" uuid="505eaa21-c22e-434b-ba94-c71d9583f5cb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[المبلغ المستوجب دفعه
+Montant à payer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="234" width="280" height="44" uuid="2e4ba18e-6ee2-4ec3-936c-c05a99103f39">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[La présente déclaration de salaires certifiée sincère et
+conforme à nos documents comptables est arrêtée à la
+somme de :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="234" width="155" height="44" uuid="22f66cbe-a309-4979-909e-23e84e06752a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[أوقـف هـذا التصريـح بالأجـور الذي
+نشهد بصدقه ومطابقته لوثائقنا المحاسبيـة 
+بمبلـغ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="285" width="468" height="39" uuid="d2104f16-65b0-41e2-a334-d7de83df17da"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="327" width="506" height="16" uuid="f64619d3-af44-490a-b21d-f152be99af89"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Fait à ………...............…..………….….. le ………..………......…..……حرر بـ……………..….....……..…………….. في]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="350" width="188" height="20" uuid="da346983-5ca0-438e-8d00-255172396e44">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Signature et cachet de l'employeur ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="350" width="131" height="20" uuid="86313255-2726-47a9-994c-115313d0e826">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[إمضـاء وختم المؤجر]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</pageFooter>
+</jasperReport>

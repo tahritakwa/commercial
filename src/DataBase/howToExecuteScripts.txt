@@ -1,0 +1,10 @@
+0 - Go to "1-Initialization\1-Create-DataBase" and Execute all scripts (To create data bases)
+1 - Go to "1-Initialization\3-ERP"
+2 - Execute "1-Schema.sql" for slave databases ("MasterGuidTN", "MasterGuidFR" et/ou "MasterGuidUK")
+3 - Execute "2-Config.sql" for all created slave databases
+4 - Execute "3-Data.sql" for all created slave databases
+5 - Go to "1-Initialization\2-Catalog"
+6 - Execute "1_Script_Schema_Master.sql" 
+7 - Execute "2_Script_Data_Master_Local.sql"
+8 - For all slaves databases, update the column "Code" (table "Shared.Company") to respect the "Code" existing in the master database (table [Master].[MasterCompany])
+9 - Execute "12-Script_Hangfire.sql"

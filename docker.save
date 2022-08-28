@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  web:
+    container_name: com_cont
+    build:
+       context: . 
+    ports:
+      - 5000:5000
+    networks:
+      - authentication_network
+networks:
+  authentication_network:
+    external:  
+      name: authentication_network
+      
+

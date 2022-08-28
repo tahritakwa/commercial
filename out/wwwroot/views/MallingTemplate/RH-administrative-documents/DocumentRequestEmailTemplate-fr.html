@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Stark-Erp mail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ql-font-serif {
+            font-family: Times, "Times New Roman", Georgia, serif;
+            font-size: 17px;
+        }
+
+    </style>
+</head>
+<body bgcolor="#FFFFFF" cz-shortcut-listen="true">
+    <div id="div-container">
+        <p>
+            <span class="ql-font-serif">Bonjour,</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">{MESSAGE}</span>
+        </p>
+        <p><br></p>
+        <p>
+            <strong class="ql-font-serif" style="color: rgb(92, 0, 0);">Détails de la demande de document: </strong>
+        </p>
+        <p>
+            <span class="ql-font-serif">Code: {CODE}</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">Libellé: {LABEL}</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">Description: {DESCRIPTION}</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">Type: {TYPE}</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">Date limite: {DEADLINE}</span>
+        </p>
+        <p><br></p>
+        <p>
+            <span class="ql-font-serif">Cordialement,</span>
+        </p>
+        <p>
+            <span class="ql-font-serif">L'équipe d'administration</span>
+        </p>
+        <p><img src="data:image/png;base64,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"></p>
+    </div>
+</body>
+</html>

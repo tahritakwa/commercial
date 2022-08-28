@@ -1,0 +1,1 @@
+ALTER TABLE [Shared].[BankAccount] ALTER COLUMN [IdCountry] INT NULL;

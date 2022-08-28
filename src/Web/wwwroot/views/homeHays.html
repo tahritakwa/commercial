@@ -1,0 +1,408 @@
+﻿<h2></h2>
+<link href="../kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
+<link href="../kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Poppins:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+
+<style>
+    .legend-item {
+        font: 12px sans-serif;
+        margin: 2px;
+        cursor: pointer;
+    }
+
+        .legend-item .legend-marker {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+    body {
+        overflow-x: hidden !important;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Staffing TurnOver </div>
+                            <i class="fa fa-bar-chart fa-5x" aria-hidden="true" style="color: #f73859;"></i>
+                            <div class="stat-digit"> {{staffingTurnovernumber}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Ind. Staff. TurnOver</div>
+                            <i class="fa fa-line-chart fa-5x" aria-hidden="true" style="color:#acd8d0;"></i>
+                            <div class="stat-digit">{{indirectStaffingTurnoverResult}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text">Workforce</div>
+                            <i class="fa fa-user-circle-o fa-5x" aria-hidden="true" style="color:#384259"></i>
+                            <div class="stat-digit">{{workforceNumber}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="stat-widget-two">
+                        <div class="stat-content">
+                            <div class="stat-text"> Num. of Sales inv.  {{numberSalesInvoicesDate}} </div>
+                            <i class="fa fa-link fa-5x" aria-hidden="true" style="color:#dc3545"></i>
+                            <div class="stat-digit"> {{numberSalesInvoicesResult}}</div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
+        <div id="mapdiv" style="width: 100%; height:300px"></div>
+        <!-- /# card -->
+    </div>
+</div>
+<div id="components-directive" style="background-color: #f0f0f7; font-family:roboto">
+    <div class="" ng-controller="BaseController as bController" data-ng-init="bController.baseService.ourDashboardService.initCharts()">
+
+        <div class="row">
+            <!-- Begin Supplier Invoice Chart -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 portlets" style="padding-top: 10px;">
+                <div class="demo-section k-content">
+
+                    <div kendo-chart
+                         k-theme="['MyTheme']"
+                         k-title="{ text: 'Dépenses par mois', position: 'bottom' }"
+                         k-legend="{ position: 'bottom' }"
+                         k-value-axis="invoiceSupplierDeliveryValueAxis"
+                         k-series-defaults="{ type: 'area',area: {
+                                line: {
+                                    style: 'smooth'}}}"
+                         k-category-axis=" { categories: listOfMonths,  majorGridLines: {
+                        visible: false},
+                        labels: {
+                        rotation: 30
+                        }}"
+                         k-series="seriesDeliverySupplierData"
+                         k-series-hover="onSeriesHover"
+                         k-tooltip="invoiceSupplierDeliveryTooltip"
+                         k-chart-area="{ background: '#f0f0f7' }"
+                         style="height: 350px; background: #f0f0f7;"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Begin Item Per Category in purchase order Chart -->
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-xlg-6 portlets" style="padding-top: 10px;">
+                <div class="demo-section k-content">
+                    <div>
+                        <div kendo-chart
+                             k-theme="['MyTheme']"
+                             k-title="{ text: 'Catégories commandées par mois', position: 'bottom' }"
+                             k-legend="{ position: 'bottom'}"
+                             k-category-axis=" { categories: listOfCatFieldPuchase,
+                              majorGridLines: {
+                        visible: false
+                        },  labels: {
+                        rotation: 30
+                         }}"
+                             k-value-axis="techPurchaseValueAxis"
+                             k-series-defaults="{
+                            type: 'column',
+                            stack: true}"
+                             k-series="seriesCatByMonthPurchase"
+                             k-series-hover="onSeriesHover"
+                             k-tooltip="techPurchaseTooltip"
+                             k-chart-area="{ background: '#f0f0f7' }"
+                             style="height: 300px;background: #f0f0f7;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Item Per Category in purchase order Chart-->
+            <!-- Begin Supplier Delivery Chart -->
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 portlets" style="padding-top: 10px; padding-left: 10px;">
+                <div class="demo-section k-content">
+                    <div kendo-chart
+                         id="idChart"
+                         k-theme="['MyTheme']"
+                         k-title="{ text: '% Bon de livraison par fournisseur', position: 'bottom' }"
+                         k-series-defaults="{ type: 'donut' }"
+                         k-series="[{
+                        field: 'PercentageAmount',
+                        categoryField: 'TiersName',
+                        padding: 0
+                      }]"
+                         k-legend="{ visible: false }"
+                         k-data-source="supplierDeliveryData"
+                         k-series-hover="onSeriesHover"
+                         k-tooltip="{ visible: true,
+                                  format: 'N2',
+                                  template: '#= category # - #= kendo.format(\'{0:P}\', percentage)#'
+                                }"
+                         k-chart-area="{ background: '#f0f0f7' }"
+                         style="height: 250px; background: #f0f0f7;"></div>
+
+                </div>
+            </div>
+            <!--Begin Chart Legend-->
+            <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 chart-legend" style="margin-top: 3%;">
+                <span ng-repeat="x in Field" class="legend-item" ng-click="onLegendClick($event)">
+                    <span>{{x.series}}</span>
+                    <br />
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:{{x.value}}; height:4px" ng-style="{'background-color': x.style}">
+
+                        </div>
+                    </div> <br />
+                </span>
+            </div>
+            <!--End Chart Legend-->
+            <!-- End Supplier Delivery Chart -->
+        </div>
+
+    </div>
+
+</div>
+<script>
+    var themes = kendo.dataviz.ui.themes;
+    var MyTheme = kendo.deepExtend(
+        // Deep copy
+        {},
+
+        // Base theme
+        themes.bootstrap,
+
+        {
+            chart: {
+                // Can contain any chart settings
+                seriesColors: ["#F73859", "#384259", "#7AC7C4", "#FFB6B9", "#BBDED6", "#FAE3D9"]
+            }
+
+        }
+    );
+    var test = kendo.deepExtend(
+        // Deep copy
+        {},
+
+        // Base theme
+        themes.bootstrap,
+
+        {
+            chart: {
+                // Can contain any chart settings
+                seriesColors: ["#4db0ab", "#BBDED6"]
+            }
+
+        }
+    );
+    themes.MyTheme = MyTheme;
+    themes.test = test;
+</script>
+<script>
+
+
+    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+    // svg path for plane icon
+
+    AmCharts.makeChart("mapdiv",
+        {
+            type: "map",
+            dataProvider: {
+
+                mapVar: AmCharts.maps.france2016High,
+                map: "worldLow",
+                projection: "miller",
+            
+                images: [{
+
+                    zoomLevel: 7,
+                    zoomLongitude: 24,
+                    zoomLatitude: 45,
+                },
+
+                {
+                    svgPath: targetSVG,
+                    title: "Paris",
+                    latitude: 48.8567,
+                    longitude: 2.3510
+                    },
+                {
+                    svgPath: targetSVG,
+                    title: "Puteaux",
+                    latitude: 48.8567,
+                    longitude: 2.125
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Reims",
+                    latitude: 49.4,
+                    longitude: 4.5
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Lille",
+                    latitude: 50.658,
+                    longitude: 2.7
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Amiens",
+                    latitude: 48.9,
+                    longitude: 1.95
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Rouen",
+                    latitude: 49.156,
+                    longitude: 0
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Nancy",
+                    latitude: 48.899,
+                    longitude: 5.9
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Grenoble",
+                    latitude: 47,
+                    longitude: 5.9
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Nice",
+                    latitude: 44,
+                    longitude: 6.7
+                }, 
+                {
+                    svgPath: targetSVG,
+                    title: "Aix-en-Provence",
+                    latitude: 43.89,
+                    longitude: 4
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Montpellier",
+                    latitude: 43.3,
+                    longitude: 3
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Starsbourg",
+                    latitude: 48.7,
+                    longitude: 7.6
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Dijon",
+                    latitude: 45,
+                    longitude: 4.5
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Tours",
+                    latitude: 47.68,
+                    longitude: 1.95
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Toulouse",
+                    latitude: 43.5,
+                    longitude: 1.89
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Rennes",
+                    latitude: 48.35,
+                    longitude: -3.7
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Nantes",
+                    latitude: 48,
+                    longitude: -3.7
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "saint-nazaire",
+                    latitude: 48,
+                    longitude: -4.1
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Bordeau",
+                    latitude: 45,
+                    longitude: 0
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Lyon",
+                    latitude: 45.8,
+                    longitude: 5.5
+                },
+                {
+                    svgPath: targetSVG,
+                    title: "Clermont-Ferrand",
+                    latitude: 45.49,
+                    longitude: 3.76
+                }
+                ]
+
+            },
+
+          
+            areasSettings: {
+                unlistedAreasColor: "#acd8d0"
+            },
+
+            imagesSettings: {
+                color: "#F73859",
+                rollOverColor: "#F73859",
+                selectedColor: "#000000"
+            },
+
+            linesSettings: {
+                color: "#CC0000",
+                alpha: 0.4
+            },
+
+
+            backgroundZoomsToTop: true,
+            linesAboveImages: true,
+
+          
+        }
+
+
+    );
+    $(window).on("resize", function () {
+        kendo.resize($(".demo-section"));
+    });
+</script>
+
+<!-- scripit init-->

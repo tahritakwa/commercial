@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    container_name: com_cont
+    image: com_image 
+    ports:
+      - 5000:5000
+    networks:
+      - stark_network
+    volumes:
+      - dotnetdata:/var/opt/dotnet
+networks:
+  stark_network:
+    external:  
+      name: stark_network
+volumes:
+  dotnetdata:
