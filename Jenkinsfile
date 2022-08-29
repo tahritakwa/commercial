@@ -1,37 +1,33 @@
 pipeline {
   agent none
   stages {
-    stage('dotnet Install') {
+    stage ('Git Checkout') {
+      agent any
+      steps {
+        git branch: 'master', credentialsId: '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', url: 'https://github.com/tahritakwa/commercial.git'
+    }
+  }
+    stage('dotnet restore') {
       agent {
         docker {
           image 'mcr.microsoft.com/dotnet/sdk:5.0'
         }
       }
       steps {
-        script {
           sh 'dotnet restore'
-        }
-      }
-      steps {
-        script {
           sh 'dotnet publish -c Release -o out'
-        }
       }
     }
     stage('server') {
       agent any
       steps {
-        script {
-          sh 'docker build image -t com_image .'
-        }
+          sh 'docker build -t com_image .'
       }
     }
     stage('docker') {
       agent any
       steps {
-        script {
           sh 'docker-compose up --build -d'
-        }
       }
     }
 
