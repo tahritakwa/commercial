@@ -7,20 +7,6 @@ pipeline {
         git branch: 'master', credentialsId: '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', url: 'https://github.com/tahritakwa/commercial.git'
     }
   }
-    stage('dotnet restore') {
-      agent {
-        docker {
-          image 'mcr.microsoft.com/dotnet/sdk:5.0'
-        }
-      }
-      environment {
-                  HOME="."
-                }
-      steps {
-          sh 'dotnet restore'
-          sh 'dotnet publish -c Release -o out'
-      }
-    }
     stage('server') {
       agent any
       steps {
