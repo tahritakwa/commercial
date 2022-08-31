@@ -10,9 +10,12 @@ pipeline {
     stage('dotnet restore') {
       agent {
         docker {
-          image 'mcr.microsoft.com/dotnet/sdk:5.0 AS build-env'
+          image 'mcr.microsoft.com/dotnet/sdk:5.0'
         }
       }
+      environment {
+                  HOME="."
+                }
       steps {
           sh 'dotnet restore'
           sh 'dotnet publish -c Release -o out'
